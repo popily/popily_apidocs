@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="Data Science and Political Science">
-    <meta name="author" content="Chris Albon">
+    <meta name="description" content="Popily API Documentation">
+    <meta name="author" content="Popily">
     <link rel="icon" href="../favicon.ico">
 
     <title>Popily API Documentation</title>
@@ -27,7 +27,6 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
         
-
 
 </head>
 
@@ -55,7 +54,7 @@
             <!--/.nav-collapse -->
         </nav>
         <div class="hero">
-            <h1 class="post-title">API Reference, Made For Developers With &hearts;</h1>
+            <h1 class="post-title">Made For Developers With <span style='color:#e74c3c; font-size: 1.5em;position: relative; top: 8px;'>&hearts;</span></h1>
         </div>
     </div>
     <!-- end of header section -->
@@ -64,114 +63,38 @@
             <div class='col-sm-3'>
 <div class="sidebar panel-group">
     <h4>
-         <a href=".">Introduction</a>
-     </h4>
-
-    <h4>
-      <a data-toggle="collapse" href="#collapse1">Quick start</a>
+        <a href="/">Introduction</a>
     </h4>
-    <div id="collapse1" class="collapse">
-        <ul class="list-group">
-            <li class="list-group-item"><a href="#"><a href="#">Blindingly quick start</a></li>
-            <li class="list-group-item"><a href="#">Still pretty quick start</a></li>
-        </ul>
-    </div>
-
     <h4>
-         <a href="#introductiob">Concepts</a>
-     </h4>
+        <a href="/quickstart">Quickstart</a>
+    </h4>
+    <h4>
+        <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/overview">Overview</a>
+    </h4>
+    <h4>
+        <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/transforming-chart-data">Transforming Chart Data</a>
+    </h4>
+    <h4>
+        <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
+    </h4>
 
-     <h4>
-       <a data-toggle="collapse" href="#collapse2">Authentication</a>
-     </h4>
-     <div id="collapse2" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">Basic authentication</a></li>
-             <li class="list-group-item"><a href="#">API tokens</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a data-toggle="collapse" href="#collapse3">Interacting with the API</a>
-     </h4>
-     <div id="collapse3" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">Status codes</a></li>
-             <li class="list-group-item"><a href="#">Making requests</a></li>
-             <li class="list-group-item"><a href="#">Pagination</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a data-toggle="collapse" href="#collapse4">Sources</a>
-     </h4>
-     <div id="collapse4" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">Create source</a></li>
-             <li class="list-group-item"><a href="#">Sending files</a></li>
-             <li class="list-group-item"><a href="#">Source data types</a></li>
-             <li class="list-group-item"><a href="#">source status</a></li>
-             <li class="list-group-item"><a href="#">Exploring your data sources</a></li>
-             <li class="list-group-item"><a href="#">List sources</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a data-toggle="collapse" href="#collapse5">Insights</a>
-     </h4>
-     <div id="collapse5" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">List insights</a></li>
-             <li class="list-group-item"><a href="#">Selecting specific column relationships</a></li>
-             <li class="list-group-item"><a href="#">Limiting by analysis</a></li>
-             <li class="list-group-item"><a href="#">Filtering your data</a></li>
-             <li class="list-group-item"><a href="#">Getting single insights</a></li>
-             <li class="list-group-item"><a href="#">Displaying insights</a></li>
-             <li class="list-group-item"><a href="#">Customizing insights</a></li>
-             <li class="list-group-item"><a href="#">Filtering insight data</a></li>
-             <li class="list-group-item"><a href="#">Refreshing insight data</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a data-toggle="collapse" href="#collapse6">Users</a>
-     </h4>
-     <div id="collapse6" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">Create users</a></li>
-             <li class="list-group-item"><a href="#">List users</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a data-toggle="collapse" href="#collapse7">API clients</a>
-     </h4>
-     <div id="collapse7" class="collapse">
-         <ul class="list-group">
-             <li class="list-group-item"><a href="#">Python</a></li>
-             <li class="list-group-item"><a href="#">Javascript</a></li>
-         </ul>
-     </div>
-
-     <h4>
-       <a href="#collapse1">Getting help</a>
-     </h4>
 </div>            </div>
             <div class='col-sm-9'>
 <section id="content" class="body">
-    <header>
+  <header>
     <h1>
-      Welcome to My Site
+      Introduction
     </h1>
-    <time class="published" datetime="2016-03-23T13:55:34-07:00">
-      Modified: 23-Mar-2016
-  </time> <br/>
-    <a href='https://twitter.com/chrisalbon'>See an error? Open an issue on GitHub</a>
-</header>
-
-<p>Thank you for visiting. Welcome!</p>
+  </header>
+<p>Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in Python and JavaScript (more coming soon!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! </p>
+<p>Just authenticate, add data, retrieve the relationships your customers care about, tweak the output, and repeat until your customers are happy.</p>
 </section>
-
             </div>
         </div>
 

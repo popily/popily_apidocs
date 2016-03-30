@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Popily API Documentation">
+    <meta name="author" content="Popily">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Popily API Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        
+
+</head>
+
+<body>
+    <div class='bar'>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='main-logo' href="http://popily.com/" title="Home"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://popily.com/about/"> About The Team </a></li>
+                    <li><a href="http://developers.popily.com/"> API Docs </a></li>
+                    <li><a href="http://blog.popily.com/"> Blog </a></li>
+                    <li><a href="http://partiallyderivative.com"> Podcast </a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </nav>
+        <div class="hero">
+            <h1 class="post-title">Made For Developers With <span style='color:#e74c3c; font-size: 1.5em;position: relative; top: 8px;'>&hearts;</span></h1>
+        </div>
+    </div>
+    <!-- end of header section -->
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm-3'>
+<div class="sidebar panel-group">
+    <h4>
+        <a href="/">Introduction</a>
+    </h4>
+    <h4>
+        <a href="/quickstart">Quickstart</a>
+    </h4>
+    <h4>
+        <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/overview">Overview</a>
+    </h4>
+    <h4>
+        <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/transforming-chart-data">Transforming Chart Data</a>
+    </h4>
+    <h4>
+        <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
+    </h4>
+
+</div>            </div>
+            <div class='col-sm-9'>
+<section id="content" class="body">
+  <header>
+    <h1>
+      Overview
+    </h1>
+  </header>
+<p>Popily automates analytics so you can get your customers what they want as quickly as possible. Even though it's automatic, we find it's sitll helpful to understand a little about best practices in data analysis in order to get the most out of Popily.</p>
+<h2>Data Analysis: How it Works</h2>
+<h3>1. <strong>Getting the data</strong></h3>
+<p>This probably sounds obvious, but it's so important that it's worth pointing out. Any analysis is only as good as the information it's analyzing. For example, let's say you have a database with two tables: <code>employees</code> and <code>salaries</code>. If you want to answer a question about employee salaries, you'll need information from both these tables. That example is pretty trivial, but now imagine a more complex scenario when you wanted to understand user behavior relative to a social media campaign. You might have user information in your application database, details about user behavior in Google Analytics, and records of social media activity in some third-party service that tracks posts to Twitter, Facebook, etc. </p>
+<p>Continuing with the social media example, imagine you created a single CSV file that pulled user names from your database, and joined those with click events from Google Analytics and social media mentions from your third-party service. You might end up with something like this:</p>
+<table>
+<thead>
+<tr>
+<th>username</th>
+<th>clickedButtonID</th>
+<th>tweetText</th>
+<th>pageURL</th>
+<th>eventDate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>johndoe</td>
+<td>#tweetThis</td>
+<td>I love @yourCompany, they make great stuff</td>
+<td>yourcompany.com/promotion</td>
+<td>1-1-2016</td>
+</tr>
+<tr>
+<td>janedoe</td>
+<td>#tweetThis</td>
+<td>.@yourCompany is great</td>
+<td>yourcompany.com/promotion</td>
+<td>1-1-2016</td>
+</tr>
+</tbody>
+</table>
+<p>In Popily, the data you put together for analysis is called a <strong>Data Source</strong>.</p>
+<p>Fortunately, generally speaking creating the Data Source you need will be more straightforward. In fact, Popily is pretty good at building data models on the fly, so usually all you need to do is write a basic query that gets everything you could possibly want, like:</p>
+<p><code>SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;</code></p>
+<p>Then send that data to Popily.</p>
+<div class="highlight"><pre><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.employee_name&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;rowlabel&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.hire_date&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;category&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+
+<span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="nx">columns</span><span class="p">,</span> 
+    <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
+    <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span> 
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Of course, sometimes even with the best intentions databases get a little messy over time. If you're not sure how to get the data you need for analysis, <a href="https://gentle-shore-82359.herokuapp.com/">talk to us on Slack</a>, or email us at <a href="mailto:awesome@popily.com">awesome@popily.com</a>.</p>
+<h3>2. <strong>Analyzing the data</strong></h3>
+<p>The goal of an analysis is to figure out something about one column, like "the average employee salary is $50,000," or, more commonly, about a relationship between the columns, like "the average salary of employees based on their favorite color." Usually this involves doing a little relational algebra and performing basic calculations like finding a total or average.</p>
+<p>In Popily, these relationships are somewhat pretentiously called <strong>Insights</strong>.</p>
+<p>Fortunately Popily makes Insights automatically. We break up your data into a bunch of possible relationships, do the math, and store the calculations so they're ready whenever you need them. Then you just ask for the relationship you want. For example, to get the relationship between employees' favorite color and their salaries:</p>
+<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">]</span>
+<span class="p">};</span>
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Popily does a little data science magic in the background to try and figure out which way of thinking about this relationship is the most "interesting." (Seriously, the score we give to each Insight is called "interestingness.") Sometimes, however, Popily's opinion will differ from yours. Let's say, for instance, that when you asked for an Insight about <code>employees.favorite_color</code> and <code>salaries.amount</code>, it returned the total salary for each favorite color, but you want the average. No problem! You can specifiy the calculation you want like this:</p>
+<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span>
+<span class="p">};</span>
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Now that you have the calculated relationship you want, you can transform it to show exactly what you want. Maybe you only want to see salary information for employees who like primary colors:</p>
+<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Red&#39;</span><span class="p">,</span> <span class="s1">&#39;Green&#39;</span><span class="p">,</span> <span class="s1">&#39;Blue&#39;</span><span class="p">],</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>You can ask for complex relationships and perform many transformations in sequence. These features combined are powerful tools for quickly analyzing your data.</p>
+<p>If you're interested, this approach of splitting up a dataset, performing some calculations, and then transforming the output, is loosely based on a strategy for analysis called "<a href="http://seananderson.ca/2013/12/01/plyr.html">split-apply-combine</a>" (which is similar <a href="https://en.wikipedia.org/wiki/MapReduce">MapReduce</a>). Happy reading!</p>
+<h3>3. <strong>Presenting the data</strong></h3>
+<p>Coming soon.</p>
+</section>
+            </div>
+        </div>
+
+    </div>
+    <!-- start of footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <center>
+                    &copy; <time datetime="2016">2016</time> Popily, LLC All rights reserved.
+                </center>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics Code Start -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61764668-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics Code End -->
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to
+        left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

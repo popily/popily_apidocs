@@ -5,7 +5,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Popily'
 SITENAME = 'Popily API Documentation'
 SITEURL = ''
-THEME = '../popily_apidocs_template/'
+THEME = 'popily_apidocs_template/'
 
 PATH = 'content'
 
@@ -13,6 +13,10 @@ TIMEZONE = 'America/Los_Angeles'
 
 DEFAULT_LANG = 'en'
 DEFAULT_DATE = 'fs'
+
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
+DELETE_OUTPUT_DIRECTORY = True
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
