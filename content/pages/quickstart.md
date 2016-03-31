@@ -1,6 +1,11 @@
-Title: Quickstart
+Title: Get Started
 URL: 
-sortorder: 20
+sortorder: 10
+save_as: index.html
+
+Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in Python and JavaScript (more coming soon!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! 
+
+Just authenticate, add data, retrieve the relationships your customers care about, tweak the output, and repeat until your customers are happy.
 
 The easiest way to interact with the Popily API is by using one of our client libraries. Right now we have libraries for [Python](https://github.com/popily/popily-api) and JavaScript (both for [Node.js](https://github.com/popily/popily-node) and [in the browser](https://github.com/popily/popily-js)), and more are on the way. If you'd like to help out with a client in your favorite language, just let us know!
 

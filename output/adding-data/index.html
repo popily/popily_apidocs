@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Popily API Documentation">
+    <meta name="author" content="Popily">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Popily API Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        
+
+</head>
+
+<body>
+    <div class='bar'>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='main-logo' href="http://popily.com/" title="Home"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://popily.com/about/"> About The Team </a></li>
+                    <li><a href="http://developers.popily.com/"> API Docs </a></li>
+                    <li><a href="http://blog.popily.com/"> Blog </a></li>
+                    <li><a href="http://partiallyderivative.com"> Podcast </a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </nav>
+        <div class="hero">
+            <h1 class="post-title">Made For Developers With <span style='color:#e74c3c; font-size: 1.5em;position: relative; top: 8px;'>&hearts;</span></h1>
+        </div>
+    </div>
+    <!-- end of header section -->
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm-3'>
+<div class="sidebar panel-group">
+    <h4>
+        <a href="/">Get Started!</a>
+    </h4>
+    <h4>
+        <a href="/data-analysis-101">Data Analysis 101</a>
+    </h4>
+    <h4>
+        <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/adding-data">Adding Data</a>
+    </h4>
+    <h4>
+        <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/transforming-chart-data">Transforming Chart Data</a>
+    </h4>
+    <h4>
+        <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
+    </h4>
+
+</div>            </div>
+            <div class='col-sm-9'>
+<section id="content" class="body">
+  <header>
+    <h1>
+      Adding Data
+    </h1>
+  </header>
+<p>In Popily, the data you put together for analysis is called a <strong>Data Source</strong>. This could be the result of a database query, a request to an API, or a CSV file. Sending data to Popily for analysis is a two-step process:</p>
+<h2>Step 1: Define the data</h2>
+<p>Soon Popily will be able to predict what types of information are in your data. For now, just tell Popily what type of data it should expect, and it will handle the rest of the analysis. </p>
+<p>When we say "type," this is more advanced than simply an integer or string. Popily understands concepts like categories, or US states.</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>category</td>
+<td>A column containing categorical values.</td>
+<td>Apple, Orange, Pear</td>
+</tr>
+<tr>
+<td>numeric</td>
+<td>A column of numeric values.</td>
+<td>320, 2, 23.10</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>A column of numeric values as currencies.</td>
+<td>$320, $2, $23.10</td>
+</tr>
+<tr>
+<td>datetime</td>
+<td>A column of datetime or timestamps.</td>
+<td>12/12/2015, 2/3/15, January 6, 2015</td>
+</tr>
+<tr>
+<td>country</td>
+<td>A column of countries.</td>
+<td>Spain, France, England</td>
+</tr>
+<tr>
+<td>state</td>
+<td>A column of US states.</td>
+<td>Arizona, Maine, Oregon</td>
+</tr>
+<tr>
+<td>coordinate</td>
+<td>A column of latitude and longitude coordinate pairs.</td>
+<td>[43.522, 23.521]</td>
+</tr>
+<tr>
+<td>zipcode</td>
+<td>A column of US Zip codes.</td>
+<td>42351</td>
+</tr>
+<tr>
+<td>rowlabel</td>
+<td>A column of non-categorical uniquely or semi-uniquely identifying each individual row</td>
+<td>Steve Jobs, Dunder Muffin, Wendy Jones</td>
+</tr>
+</tbody>
+</table>
+<p>Coming soon we'll also identify these types of information:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>time</td>
+<td>Time of day without a date attached</td>
+<td>12:52pm, 13:23</td>
+</tr>
+<tr>
+<td>text</td>
+<td>A long text</td>
+<td>An example won't fit here, but anything over 200 characters counts</td>
+</tr>
+<tr>
+<td>email</td>
+<td>An email address</td>
+<td>sergey@google.com, tim@apple.com, jonathon@popily.com</td>
+</tr>
+<tr>
+<td>URL</td>
+<td>A URL</td>
+<td>https://popily.com, https://google.com, twitter.com/PopilyTeam</td>
+</tr>
+<tr>
+<td>address</td>
+<td>A full street address</td>
+<td>100 Congress Ave, Austin, TX 78745</td>
+</tr>
+<tr>
+<td>street</td>
+<td>Just the street portion of an address</td>
+<td>100 Congress Ave</td>
+</tr>
+<tr>
+<td>city</td>
+<td>A major world city</td>
+<td>Austin, Manchester, Beijing</td>
+</tr>
+<tr>
+<td>phone</td>
+<td>A phone number</td>
+<td>440-867-5309, +44 20 345 567</td>
+</tr>
+<tr>
+<td>latitude</td>
+<td>Latitude part of a coordinate</td>
+<td>34.75, -87.13</td>
+</tr>
+<tr>
+<td>longitude</td>
+<td>Longitude part of a coordinate</td>
+<td>-179.34, 134.12</td>
+</tr>
+</tbody>
+</table>
+<p>Popily's API expects a list of columns, and each item in the list should have a <code>column_header</code> property that exactly matches the column in your data and a <code>data_type</code> property that is one of the values described above.</p>
+<div class="highlight"><pre><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;category&#39;</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">,</span>
+        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+
+<h2>Step 2: Send the data</h2>
+<p>Now tell Popily where the data can be accessed.  We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. Here's an example where Popily connects directly to a database.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
+    <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
+    <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM my_table&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span> 
+<span class="p">});</span>
+</pre></div>
+
+
+<p>When adding a Data Source from a URL (either an API endpoint or the location of a CSV file), you use the <code>url</code> property. </p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
+    <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://mysite.com/data/some-csv.csv&#39;</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span> 
+<span class="p">});</span>
+</pre></div>
+
+
+<p>Lastly, when using the Python, Node.js or any other server-side clients, you can also upload files. In Python:</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">popily</span>
+
+<span class="n">popily_api</span> <span class="o">=</span> <span class="n">popily</span><span class="o">.</span><span class="n">Popily</span><span class="p">(</span><span class="s">&#39;YOUR API TOKEN&#39;</span><span class="p">)</span>
+
+<span class="n">your_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/your/file.csv&#39;</span><span class="p">)</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">popily_api</span><span class="o">.</span><span class="n">add_source</span><span class="p">(</span><span class="n">file_obj</span><span class="o">=</span><span class="n">your_file</span><span class="p">)</span>
+</pre></div>
+
+
+<p>In Node.js:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">popily</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;popily&#39;</span><span class="p">)(</span><span class="s1">&#39;YOUR API TOKEN&#39;</span><span class="p">);</span>
+
+<span class="nx">filePath</span> <span class="o">=</span> <span class="s1">&#39;/path/to/your/file.csv&#39;</span>
+<span class="kd">var</span> <span class="nx">sourceData</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="nx">data</span><span class="o">:</span> <span class="nx">filePath</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceData</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+    <span class="c1">// do something with the source</span>
+<span class="p">});</span>
+</pre></div>
+
+
+<p><strong>Note</strong>: Data Sources are processed asynchronously. So you'll get an immediate response from the API, but it may take a few seconds to a few minutes (depending on the size and shape of your data) for Popily to start producing Insights. This is only true when creating a new Data Source. Updates to a Data Source are performed in seconds.</p>
+<p>You can check the <code>status</code> of a Data Source at any time using its slug or id. </p>
+<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSource</span><span class="p">(</span><span class="s1">&#39;your-source-slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span> 
+<span class="p">});</span>
+</pre></div>
+
+
+<p>These are the possible statuses of a Data Source. </p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>inspecting</td>
+<td>Popily is looking for relationships in the data.</td>
+</tr>
+<tr>
+<td>calculating</td>
+<td>Popily is creating Insights, but still working.</td>
+</tr>
+<tr>
+<td>reinspecting</td>
+<td>Reprocessing the Data Source after a change.</td>
+</tr>
+<tr>
+<td>error</td>
+<td>Something went wrong.</td>
+</tr>
+<tr>
+<td>finished</td>
+<td>All Insights have been created.</td>
+</tr>
+</tbody>
+</table>
+<p>If you ever need to access a list of Data Sources -- either for your account, or associated with a User you have created -- you can retrieve those from the <code>/sources/</code> API endpoint, which is exposed in each of our client libraries. </p>
+<p>For example, in our browser client:</p>
+<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API TOKEN || USER API TOKEN&#39;</span><span class="p">);</span>
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSources</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">sources</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sources</span><span class="p">);</span> 
+<span class="p">});</span>
+</pre></div>
+</section>
+            </div>
+        </div>
+
+    </div>
+    <!-- start of footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <center>
+                    &copy; <time datetime="2016">2016</time> Popily, LLC All rights reserved.
+                </center>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics Code Start -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61764668-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics Code End -->
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to
+        left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

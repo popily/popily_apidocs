@@ -63,16 +63,16 @@
             <div class='col-sm-3'>
 <div class="sidebar panel-group">
     <h4>
-        <a href="/">Introduction</a>
+        <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/quickstart">Quickstart</a>
-    </h4>
-    <h4>
-        <a href="/overview">Overview</a>
+        <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
         <a href="/getting-charts">Getting Charts</a>
@@ -92,7 +92,174 @@
       Transforming Chart Data
     </h1>
   </header>
-<p>Thank you for visiting. Transform!</p>
+<p>Every Popily visualization represents the relationship between two or more columns. We call these relationships <strong>Insights</strong>. By default Popily paints the entire picture of a relationship, but you can be selective about which aspects of that relationship you share with your customers. In short: you can limit what shows up in the chart.</p>
+<p>For example let's say you have a dataset of purchases, and each purchase has a Purchase Price and a Location. To get the relationship between these columns you'd make this request:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">single</span><span class="o">:</span> <span class="kc">true</span>  
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;my-purchases-dataset&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">,</span> 
+                        <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">insight</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">insight</span><span class="p">);</span>
+                        <span class="p">});</span>
+</pre></div>
+
+
+<p>When you check out the console log, you'll see something like this:</p>
+<div class="highlight"><pre><span class="p">{</span>
+    <span class="nt">&quot;refresh_rate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Average Purchase Price by Location&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;calculation&quot;</span><span class="p">:</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;purchase-price-location&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="mi">336</span><span class="p">,</span>
+    <span class="nt">&quot;insight_metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">246367</span><span class="p">,</span>
+    <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;27.50&quot;</span><span class="p">,</span> <span class="s2">&quot;35.27&quot;</span><span class="p">,</span> <span class="s2">&quot;99.12&quot;</span><span class="p">,</span> <span class="s2">&quot;100.00&quot;</span><span class="p">,</span> <span class="s2">&quot;12.34&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;column_header&quot;</span><span class="p">:</span> <span class="s2">&quot;Purchase Price&quot;</span>
+        <span class="p">},</span> 
+        <span class="p">{</span>
+            <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Lowes&quot;</span><span class="p">,</span> <span class="s2">&quot;Home Depot&quot;</span><span class="p">,</span> <span class="s2">&quot;Sears&quot;</span><span class="p">,</span> <span class="s2">&quot;Ace Hardware&quot;</span><span class="p">,</span> <span class="s2">&quot;True Value&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;column_header&quot;</span><span class="p">:</span> <span class="s2">&quot;Location&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This will produce a bar chart with Location along the bottom and bars representing the average purchase price of each location. You can limit what is displayed in the chart using <code>transformations</code>. For example let's only show bars where the value is over $20.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>A <code>transformation</code> has three properties: </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>The column you'd like to act on</td>
+</tr>
+<tr>
+<td>value(s)</td>
+<td><code>value</code> or a list of <code>values</code> are accepted</td>
+</tr>
+<tr>
+<td>op</td>
+<td>Stands for "operation" -- like equals, less than, greater than, etc</td>
+</tr>
+</tbody>
+</table>
+<p>We're always expanding the available operations to make Popily more flexible. Currently we have:</p>
+<table>
+<thead>
+<tr>
+<th>Op</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>lte</td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>gte</td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td>eq</td>
+<td>Equals</td>
+</tr>
+<tr>
+<td>countUnique</td>
+<td>Counts the unique values for a given column</td>
+</tr>
+</tbody>
+</table>
+<p>Multiple transformations can be applied to the same Insight. For instance we could limit the chart to display only to average Purchase Prices more than $20 at Lowes or Home Depot.</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Lowes&#39;</span><span class="p">,</span> <span class="s1">&#39;Home Depot&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Note: each transformation will be performed in the order it is received. This becomes particularly important when applying transformations like <code>countUnique</code>. For example if our purchases dataset also had Product Type and State columns, we could really go to town:</p>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Product Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Lowes&#39;</span><span class="p">,</span> <span class="s1">&#39;Home Depot&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;State&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Product Type&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;countUnique&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>That list of transformations will give us the count of each Product Type where the State is Texas or California and the Location is Lowes or Home Depot. </p>
 </section>
             </div>
         </div>

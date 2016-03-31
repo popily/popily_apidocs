@@ -1,6 +1,6 @@
-Title: Overview
+Title: Data Analysis 101
 URL: 
-sortorder: 25
+sortorder: 20
 
 Popily automates analytics so you can get your customers what they want as quickly as possible. Even though it's automatic, we find it's sitll helpful to understand a little about best practices in data analysis in order to get the most out of Popily.
 
@@ -157,7 +157,9 @@ var insightOptions = {
 popily.chart.getAndRender('#some-element', insightOptions);
 ```
 
-We say "within reason" because some chart types just wouldn't make sense. For example if you want to show your users the relationship between `employees.favorite_color` (a category) and `salaries.amount` (a number), you wouldn't use a scatterplot, because that visualization type is for comparing one list of numbers with another list of numbers. Also, every once in awhile someone asks for a chart that seems like a good idea, but would be super confusing in practice. Usually these are visualizations that compare more than three dimensions -- like `salaries.amount` grouped by `employees.favorite_color` grouped by `employees.hire_date` grouped by `employees.name`. Try to say that as a sentence: "I want to see the average salary for each employee broken down by favorite color grouped monthly." This is the kind of thing that'd be better as two charts. Trust us.
+We say "within reason" because some chart types just wouldn't make sense. For example if you want to show your users the relationship between `employees.favorite_color` (a category) and `salaries.amount` (a number), you wouldn't use a scatterplot, because that visualization type is for comparing one list of numbers with another list of numbers. 
+
+Also, every once in awhile someone asks for a chart that seems like a good idea, but would be super confusing in practice. Usually these are visualizations that compare more than three dimensions -- like `salaries.amount` grouped by `employees.favorite_color` grouped by `employees.hire_date` grouped by `employees.name`. Try to say that as a sentence: "I want to see the average salary for each employee name broken down by favorite color and grouped monthly." Whoa. This is the kind of thing that'd be better as two charts. Trust us.
 
 Our list of visualization types is always growing, and if there's one you *really* want and just can't wait, our [JavaScript charting library](https://github.com/popily/popily-js) is open source -- contributors welcome! Currently we produce:
 

@@ -1,6 +1,6 @@
 Title: Authentication
 URL: 
-sortorder: 30
+sortorder: 25
 
 Requests to Popily must be authenticated with an API key. You have an API key associated with your account, and we'll also auto-generate one for any User objects you create in our system. This way you can limit access to data on a per-user basis and manage permissions in whatever makes sense to your application.
 

@@ -63,16 +63,16 @@
             <div class='col-sm-3'>
 <div class="sidebar panel-group">
     <h4>
-        <a href="/">Introduction</a>
+        <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/quickstart">Quickstart</a>
-    </h4>
-    <h4>
-        <a href="/overview">Overview</a>
+        <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
         <a href="/getting-charts">Getting Charts</a>
@@ -89,7 +89,7 @@
 <section id="content" class="body">
   <header>
     <h1>
-      Overview
+      Data Analysis 101
     </h1>
   </header>
 <p>Popily automates analytics so you can get your customers what they want as quickly as possible. Even though it's automatic, we find it's sitll helpful to understand a little about best practices in data analysis in order to get the most out of Popily.</p>
@@ -237,7 +237,8 @@ If you're interested, this approach of splitting up a dataset, performing some c
 </pre></div>
 
 
-<p>We say "within reason" because some chart types just wouldn't make sense. For example if you want to show your users the relationship between <code>employees.favorite_color</code> (a category) and <code>salaries.amount</code> (a number), you wouldn't use a scatterplot, because that visualization type is for comparing one list of numbers with another list of numbers. Also, every once in awhile someone asks for a chart that seems like a good idea, but would be super confusing in practice. Usually these are visualizations that compare more than three dimensions -- like <code>salaries.amount</code> grouped by <code>employees.favorite_color</code> grouped by <code>employees.hire_date</code> grouped by <code>employees.name</code>. Try to say that as a sentence: "I want to see the average salary for each employee broken down by favorite color grouped monthly." This is the kind of thing that'd be better as two charts. Trust us.</p>
+<p>We say "within reason" because some chart types just wouldn't make sense. For example if you want to show your users the relationship between <code>employees.favorite_color</code> (a category) and <code>salaries.amount</code> (a number), you wouldn't use a scatterplot, because that visualization type is for comparing one list of numbers with another list of numbers. </p>
+<p>Also, every once in awhile someone asks for a chart that seems like a good idea, but would be super confusing in practice. Usually these are visualizations that compare more than three dimensions -- like <code>salaries.amount</code> grouped by <code>employees.favorite_color</code> grouped by <code>employees.hire_date</code> grouped by <code>employees.name</code>. Try to say that as a sentence: "I want to see the average salary for each employee name broken down by favorite color and grouped monthly." Whoa. This is the kind of thing that'd be better as two charts. Trust us.</p>
 <p>Our list of visualization types is always growing, and if there's one you <em>really</em> want and just can't wait, our <a href="https://github.com/popily/popily-js">JavaScript charting library</a> is open source -- contributors welcome! Currently we produce:</p>
 <ul>
 <li>Bar charts/column charts</li>
