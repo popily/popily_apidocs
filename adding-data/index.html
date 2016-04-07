@@ -47,7 +47,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="http://popily.com/about/"> About The Team </a></li>
                     <li><a href="http://developers.popily.com/"> API Docs </a></li>
-                    <li><a href="http://blog.popily.com/"> Blog </a></li>
+                    <!-- <li><a href="http://blog.popily.com/"> Blog </a></li> -->
                     <li><a href="http://partiallyderivative.com"> Podcast </a></li>
                 </ul>
             </div>
@@ -93,147 +93,8 @@
     </h1>
   </header>
 <p>In Popily, the data you put together for analysis is called a <strong>Data Source</strong>. This could be the result of a database query, a request to an API, or a CSV file. Sending data to Popily for analysis is a two-step process:</p>
-<h2>Step 1: Define the data</h2>
-<p>Soon Popily will be able to predict what types of information are in your data. For now, just tell Popily what type of data it should expect, and it will handle the rest of the analysis. </p>
-<p>When we say "type," this is more advanced than simply an integer or string. Popily understands concepts like categories, or US states.</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>category</td>
-<td>A column containing categorical values.</td>
-<td>Apple, Orange, Pear</td>
-</tr>
-<tr>
-<td>numeric</td>
-<td>A column of numeric values.</td>
-<td>320, 2, 23.10</td>
-</tr>
-<tr>
-<td>currency</td>
-<td>A column of numeric values as currencies.</td>
-<td>$320, $2, $23.10</td>
-</tr>
-<tr>
-<td>datetime</td>
-<td>A column of datetime or timestamps.</td>
-<td>12/12/2015, 2/3/15, January 6, 2015</td>
-</tr>
-<tr>
-<td>country</td>
-<td>A column of countries.</td>
-<td>Spain, France, England</td>
-</tr>
-<tr>
-<td>state</td>
-<td>A column of US states.</td>
-<td>Arizona, Maine, Oregon</td>
-</tr>
-<tr>
-<td>coordinate</td>
-<td>A column of latitude and longitude coordinate pairs.</td>
-<td>[43.522, 23.521]</td>
-</tr>
-<tr>
-<td>zipcode</td>
-<td>A column of US Zip codes.</td>
-<td>42351</td>
-</tr>
-<tr>
-<td>rowlabel</td>
-<td>A column of non-categorical uniquely or semi-uniquely identifying each individual row</td>
-<td>Steve Jobs, Dunder Muffin, Wendy Jones</td>
-</tr>
-</tbody>
-</table>
-<p>Coming soon we'll also identify these types of information:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>time</td>
-<td>Time of day without a date attached</td>
-<td>12:52pm, 13:23</td>
-</tr>
-<tr>
-<td>text</td>
-<td>A long text</td>
-<td>An example won't fit here, but anything over 200 characters counts</td>
-</tr>
-<tr>
-<td>email</td>
-<td>An email address</td>
-<td>sergey@google.com, tim@apple.com, jonathon@popily.com</td>
-</tr>
-<tr>
-<td>URL</td>
-<td>A URL</td>
-<td>https://popily.com, https://google.com, twitter.com/PopilyTeam</td>
-</tr>
-<tr>
-<td>address</td>
-<td>A full street address</td>
-<td>100 Congress Ave, Austin, TX 78745</td>
-</tr>
-<tr>
-<td>street</td>
-<td>Just the street portion of an address</td>
-<td>100 Congress Ave</td>
-</tr>
-<tr>
-<td>city</td>
-<td>A major world city</td>
-<td>Austin, Manchester, Beijing</td>
-</tr>
-<tr>
-<td>phone</td>
-<td>A phone number</td>
-<td>440-867-5309, +44 20 345 567</td>
-</tr>
-<tr>
-<td>latitude</td>
-<td>Latitude part of a coordinate</td>
-<td>34.75, -87.13</td>
-</tr>
-<tr>
-<td>longitude</td>
-<td>Longitude part of a coordinate</td>
-<td>-179.34, 134.12</td>
-</tr>
-</tbody>
-</table>
-<p>Popily's API expects a list of columns, and each item in the list should have a <code>column_header</code> property that exactly matches the column in your data and a <code>data_type</code> property that is one of the values described above.</p>
-<div class="highlight"><pre><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;category&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-
-
-<h2>Step 2: Send the data</h2>
-<p>Now tell Popily where the data can be accessed.  We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. Here's an example where Popily connects directly to a database.</p>
+<h2>Sending the data</h2>
+<p>Popily does a lot of work behind the scenes to figure out what type of information is in your data, and the relationhips between variables in your data could be visualized. So you just need to tell Popily where the data can be accessed, and we'll do the rest. We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. Here's an example where Popily connects directly to a database.</p>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
@@ -283,7 +144,18 @@
 
 
 <p><strong>Note</strong>: Data Sources are processed asynchronously. So you'll get an immediate response from the API, but it may take a few seconds to a few minutes (depending on the size and shape of your data) for Popily to start producing Insights. This is only true when creating a new Data Source. Updates to a Data Source are performed in seconds.</p>
-<p>You can check the <code>status</code> of a Data Source at any time using its slug or id. </p>
+<p>We'll get into more detail about how to retrieve data and render charts in the <a href="/getting-charts/">Getting Charts</a>, but just FYI, the easiest workaround for this is to poll for the Insight you want, like this:</p>
+<div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
+<span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
+    <span class="nx">poll</span><span class="o">:</span> <span class="kc">true</span>
+<span class="p">};</span>
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-chart&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>You can also check the <code>status</code> of a Data Source at any time using its slug or id. </p>
 <div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSource</span><span class="p">(</span><span class="s1">&#39;your-source-slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span> 
 <span class="p">});</span>
@@ -308,8 +180,12 @@
 <td>Popily is creating Insights, but still working.</td>
 </tr>
 <tr>
-<td>reinspecting</td>
+<td>supplementing</td>
 <td>Reprocessing the Data Source after a change.</td>
+</tr>
+<tr>
+<td>augmenting</td>
+<td>Popily is adding additional columns for things like sentiment analysis</td>
 </tr>
 <tr>
 <td>error</td>

@@ -47,7 +47,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="http://popily.com/about/"> About The Team </a></li>
                     <li><a href="http://developers.popily.com/"> API Docs </a></li>
-                    <li><a href="http://blog.popily.com/"> Blog </a></li>
+                    <!-- <li><a href="http://blog.popily.com/"> Blog </a></li> -->
                     <li><a href="http://partiallyderivative.com"> Podcast </a></li>
                 </ul>
             </div>
@@ -92,9 +92,8 @@
       Get Started
     </h1>
   </header>
-<p>Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in Python and JavaScript (more coming soon!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! </p>
-<p>Just authenticate, add data, retrieve the relationships your customers care about, tweak the output, and repeat until your customers are happy.</p>
-<p>The easiest way to interact with the Popily API is by using one of our client libraries. Right now we have libraries for <a href="https://github.com/popily/popily-api">Python</a> and JavaScript (both for <a href="https://github.com/popily/popily-node">Node.js</a> and <a href="https://github.com/popily/popily-js">in the browser</a>), and more are on the way. If you'd like to help out with a client in your favorite language, just let us know!</p>
+<p>Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in <a href="https://github.com/popily/popily-api">Python</a> and <a href="https://github.com/popily/popily-js">JavaScript</a> (more coming soon, let us know which langauges you'd like to see next!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! </p>
+<p>Just add data, retrieve the relationships your customers care about, and repeat until they're happy.</p>
 <p>We'll use the JavaScript browser client in the examples below. Just make sure to add the library to your HTML document. </p>
 <div class="highlight"><pre><span class="nt">&lt;body&gt;</span>
     <span class="c">&lt;!-- lots of stuff --&gt;</span>
@@ -109,26 +108,7 @@
 </pre></div>
 
 
-<h2>Step 2: Define your data</h2>
-<p>Just tell Popily what type of information is in your data, and we'll analyze it. These are more detailed than basic types like "integer" or "string." You can identify your column as a number, a category, a state (like a US state), a city, a zipcode, an email, a URL, and more! </p>
-<div class="highlight"><pre><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Region&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;category&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre></div>
-
-
-<h2>Step 3: Send your data</h2>
+<h2>Step 2: Send your data</h2>
 <p>Then tell Popily where the data can be accessed.  We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. We call this a <strong>Data Source</strong>.</p>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
@@ -142,7 +122,7 @@
 </pre></div>
 
 
-<h2>Step 4: Get some charts</h2>
+<h2>Step 3: Get some charts</h2>
 <p>Now you can pick a column (or group of columns) to visualize. We call the relationships between columns <strong>Insights</strong>.  </p>
 <div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;my-chart&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
 </pre></div>
@@ -151,13 +131,15 @@
 <div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
-    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">]</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
+    <span class="nx">poll</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">};</span>
 <span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-chart&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
 </pre></div>
 
 
-<h2>Step 5: Tweak</h2>
+<p>Note the <code>poll: true</code> property. Popily Data Sources are created asynchronously, so even though your request to <code>addSource</code> returned a response right away, it may take a few seconds to a few minutes (for datasets with lots of columns) for all of your Insights to be generated. The <code>poll</code> property tells the JavaScript client to keep requesting this Insight until it has been created, and update the DOM as soon as it's available. Note that this processing time is only required the first time Popily encounters a Data Source. Updates to the data happen much more quickly. </p>
+<h2>Step 4: Tweak</h2>
 <p>Popily will return what it thinks is the most interesting representation of the relationship between the columns you ask for ("Sale Amount" grouped by "Sale Date" in our example). Now you can modify that output to get only the information your customers want to see. We call these modifications <strong>Transformations</strong>. </p>
 <p>Let's tweak our code from Step 4 with a transformation.</p>
 <div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39; and attach the </span>
