@@ -3,11 +3,9 @@ URL:
 sortorder: 10
 save_as: index.html
 
-Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in Python and JavaScript (more coming soon!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! 
+Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in [Python](https://github.com/popily/popily-api) and [JavaScript](https://github.com/popily/popily-js) (more coming soon, let us know which langauges you'd like to see next!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! 
 
-Just authenticate, add data, retrieve the relationships your customers care about, tweak the output, and repeat until your customers are happy.
-
-The easiest way to interact with the Popily API is by using one of our client libraries. Right now we have libraries for [Python](https://github.com/popily/popily-api) and JavaScript (both for [Node.js](https://github.com/popily/popily-node) and [in the browser](https://github.com/popily/popily-js)), and more are on the way. If you'd like to help out with a client in your favorite language, just let us know!
+Just add data, retrieve the relationships your customers care about, and repeat until they're happy.
 
 We'll use the JavaScript browser client in the examples below. Just make sure to add the library to your HTML document. 
 
@@ -26,28 +24,7 @@ Use your API key to let Popily know who you are when you make requests.
 popily.api.setToken('YOUR API KEY');
 ```
 
-## Step 2: Define your data
-
-Just tell Popily what type of information is in your data, and we'll analyze it. These are more detailed than basic types like "integer" or "string." You can identify your column as a number, a category, a state (like a US state), a city, a zipcode, an email, a URL, and more! 
-
-
-```javascript
-columns = [
-    {
-        column_header: 'Sale Amount',
-        data_type: 'number'
-    },
-    {
-        column_header: 'Region',
-        data_type: 'category'
-    },
-    {
-        column_header: 'Sale Date',
-        data_type: 'datetime'
-    }
-]
-```
-## Step 3: Send your data
+## Step 2: Send your data
 
 Then tell Popily where the data can be accessed.  We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. We call this a **Data Source**.
 
@@ -63,7 +40,7 @@ popily.api.addSource(sourceOptions, function(err, source) {
 });
 ```
 
-## Step 4: Get some charts
+## Step 3: Get some charts
 
 Now you can pick a column (or group of columns) to visualize. We call the relationships between columns **Insights**.  
 
@@ -75,12 +52,15 @@ Now you can pick a column (or group of columns) to visualize. We call the relati
 // Get the relationship between 'Sale Amount' and 'Sale Date'
 var insightOptions = {
     source: source.slug, 
-    columns: ['Sale Amount', 'Sale Date']
+    columns: ['Sale Amount', 'Sale Date'],
+    poll: true
 };
 popily.chart.getAndRender('#my-chart', insightOptions);
 ```
 
-## Step 5: Tweak
+Note the `poll: true` property. Popily Data Sources are created asynchronously, so even though your request to `addSource` returned a response right away, it may take a few seconds to a few minutes (for datasets with lots of columns) for all of your Insights to be generated. The `poll` property tells the JavaScript client to keep requesting this Insight until it has been created, and update the DOM as soon as it's available. Note that this processing time is only required the first time Popily encounters a Data Source. Updates to the data happen much more quickly. 
+
+## Step 4: Tweak
 
 Popily will return what it thinks is the most interesting representation of the relationship between the columns you ask for ("Sale Amount" grouped by "Sale Date" in our example). Now you can modify that output to get only the information your customers want to see. We call these modifications **Transformations**. 
 

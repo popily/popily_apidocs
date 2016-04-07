@@ -47,7 +47,7 @@
                 <ul class="nav navbar-nav">
                     <li><a href="http://popily.com/about/"> About The Team </a></li>
                     <li><a href="http://developers.popily.com/"> API Docs </a></li>
-                    <li><a href="http://blog.popily.com/"> Blog </a></li>
+                    <!-- <li><a href="http://blog.popily.com/"> Blog </a></li> -->
                     <li><a href="http://partiallyderivative.com"> Podcast </a></li>
                 </ul>
             </div>
@@ -134,26 +134,7 @@
 <p>Fortunately, generally speaking creating the Data Source you need will be more straightforward. In fact, Popily is pretty good at building data models on the fly, so usually all you need to do is write a basic query that gets everything you could possibly want, like:</p>
 <p><code>SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;</code></p>
 <p>Then send that data to Popily.</p>
-<div class="highlight"><pre><span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.employee_name&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;rowlabel&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.hire_date&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;datetime&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;category&#39;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-        <span class="nx">column_header</span><span class="o">:</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">,</span>
-        <span class="nx">data_type</span><span class="o">:</span> <span class="s1">&#39;number&#39;</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-
-<span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="nx">columns</span><span class="p">,</span> 
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
     <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;&#39;</span>

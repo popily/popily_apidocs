@@ -37,25 +37,6 @@ Fortunately, generally speaking creating the Data Source you need will be more s
 Then send that data to Popily.
 
 ```javascript
-columns = [
-    {
-        column_header: 'employees.employee_name',
-        data_type: 'rowlabel'
-    },
-    {
-        column_header: 'employees.hire_date',
-        data_type: 'datetime'
-    },
-    {
-        column_header: 'employees.favorite_color',
-        data_type: 'category'
-    },
-    {
-        column_header: 'salaries.amount',
-        data_type: 'number'
-    }
-]
-
 var sourceOptions = {
     columns: columns, 
     connection_string: 'mysql://username:password@host:port/database',
