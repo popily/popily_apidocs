@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block head %}
+  {{ super() }}
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+<section id="content" class="body">
+    <header>
+    <h1>
+      {{ article.title }}
+    </h1>
+    <time class="published" datetime="{{ article.date.isoformat() }}">
+      Modified: {{ article.date.strftime("%d-%b-%Y") }}
+  </time> <br/>
+    <a href='https://github.com/popily/popily_apidocs/issues/new'>See an error? Open an issue on GitHub</a>
+</header>
+
+{{ article.content }}
+</section>
+
+{% endblock %}

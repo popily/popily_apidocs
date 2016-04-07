@@ -1,0 +1,13 @@
+<div class="sidebar panel-group">
+    <h4>
+        <a href="{{SITE_URL}}/">Get Started!</a>
+    </h4>
+    {% for page in pages|sort(attribute='sortorder') %}
+    {% if page.title != 'Get Started' %}
+    <h4>
+        <a href="{{SITE_URL}}/{{page.slug}}">{{page.title}}</a>
+    </h4>
+    {% endif %}
+    {% endfor %}
+
+</div>

@@ -1,0 +1,404 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  background: url("../images/bg-stars-green.svg") 0 200px no-repeat;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  border-top: 1px solid #ddd;
+  font-size: 14px;
+  background-color: rgba(65,65,65,1);
+  color: #928f8c;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+body > .container {
+  padding: 10px 15px 0;
+  color: #424242;
+}
+
+.container {
+  max-width: 960px;
+}
+
+.container .text-muted {
+  margin: 20px 0;
+}
+
+.footer > .container {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.panel-body {
+  -webkit-columns: 384px 1;
+   -moz-columns: 384px 1;
+        columns: 384px 1;
+}
+
+@media (min-width: 480px) {
+  .panel-body {
+    -webkit-columns: 384px 2;
+     -moz-columns: 384px 2;
+          columns: 384px 2;
+  }
+}
+
+.navbar {
+      font-family: 'Open Sans', sans-serif;
+}
+
+.navbar-default {
+  background-color: rgba(65,65,65,.8);
+  border: none;
+}
+
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover {
+  color: #fff;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  line-height: 60px;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-left: 10px;
+}
+
+.navbar-default .navbar-nav > li > a:hover {
+  color: #54c88a;
+}
+
+.navbar-default .navbar-nav > li:hover {
+}
+
+.profile-radial{
+  max-width:100%;
+  border: 1px solid #ddd;
+}
+
+.profile_picture{
+  text-align: right;
+}
+
+@media (max-width: 770px) {
+  .profile-radial {
+    display: none;
+  }
+}
+
+.dropdown-menu {
+  border: none;
+}
+
+.navbar-toggle {
+  background: #eee;
+}
+
+#content {
+    margin-bottom: 3em;
+}
+
+.index-page-title {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.panel-default > .panel-heading {
+    background-color: #ffffff;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+.panel-body li a, .panel-body li{
+  font-size: 1.12em;
+}
+
+#content p {
+  font-size: 18px;
+  line-height: 1.5em;
+}
+
+#content header {
+    color: #424242;
+    font-size: 16px;
+}
+
+header {
+    margin-bottom: 2em;
+}
+
+
+/* ---------------------------------------------------------
+Header Logo
+---------------------------------------------------------*/
+
+.main-logo {
+      width: 160px;
+      height: 60px;
+      background: url('../images/popily_logo.svg') center center no-repeat #54C88A;
+      display: block;
+      background-size: auto 40px;
+}
+
+
+/* Header sizes
+-------------------------------------------------- */
+
+h1,
+.h1 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+h2,
+.h2 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+h3,
+.h3 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+h4,
+.h4 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+h5,
+.h5 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+h6,
+.h6 {
+  font-family: 'Open Sans Condensed', sans-serif;
+  font-weight: 700;
+}
+
+/* collapsing sidebar
+-------------------------------------------------- */
+
+.collapsing {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  -webkit-transition: height .1s ease;
+       -o-transition: height .1s ease;
+          transition: height .1s ease;
+}
+
+
+/* ---------------------------------------------------------
+Code Cell Highlighting
+Source: http://www.sebastianraschka.com/CSS/codehilite.css
+---------------------------------------------------------*/
+
+.hll { background-color: #ffffcc }
+.c { color: #408080; font-style: italic } /* Comment */
+.err { border: 1px solid #FF0000 } /* Error */
+.k { color: #008000; font-weight: bold } /* Keyword */
+.o { color: #666666 } /* Operator */
+.cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.cp { color: #BC7A00 } /* Comment.Preproc */
+.c1 { color: #408080; font-style: italic } /* Comment.Single */
+.cs { color: #408080; font-style: italic } /* Comment.Special */
+.gd { color: #A00000 } /* Generic.Deleted */
+.ge { font-style: italic } /* Generic.Emph */
+.gr { color: #FF0000 } /* Generic.Error */
+.gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.gi { color: #00A000 } /* Generic.Inserted */
+.go { color: #888888 } /* Generic.Output */
+.gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.gs { font-weight: bold } /* Generic.Strong */
+.gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.gt { color: #0044DD } /* Generic.Traceback */
+.kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.kp { color: #008000 } /* Keyword.Pseudo */
+.kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.kt { color: #B00040 } /* Keyword.Type */
+.m { color: #666666 } /* Literal.Number */
+.s { color: #BA2121 } /* Literal.String */
+.na { color: #7D9029 } /* Name.Attribute */
+.nb { color: #008000 } /* Name.Builtin */
+.nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.no { color: #880000 } /* Name.Constant */
+.nd { color: #AA22FF } /* Name.Decorator */
+.ni { color: #999999; font-weight: bold } /* Name.Entity */
+.ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.nf { color: #0000FF } /* Name.Function */
+.nl { color: #A0A000 } /* Name.Label */
+.nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.nt { color: #008000; font-weight: bold } /* Name.Tag */
+.nv { color: #19177C } /* Name.Variable */
+.ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.w { color: #bbbbbb } /* Text.Whitespace */
+
+/* Following tags changes to black color to avoid MathJax conflicts */
+.mf { color: #000000 } /* Literal.Number.Float */
+.mh { color: #000000 } /* Literal.Number.Hex */
+.mi { color: #000000 } /* Literal.Number.Integer */
+.mo { color: #000000 } /* Literal.Number.Oct */
+
+.sb { color: #BA2121 } /* Literal.String.Backtick */
+.sc { color: #BA2121 } /* Literal.String.Char */
+.sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.s2 { color: #BA2121 } /* Literal.String.Double */
+.se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.sh { color: #BA2121 } /* Literal.String.Heredoc */
+.si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.sx { color: #008000 } /* Literal.String.Other */
+.sr { color: #BB6688 } /* Literal.String.Regex */
+.s1 { color: #BA2121 } /* Literal.String.Single */
+.ss { color: #19177C } /* Literal.String.Symbol */
+.bp { color: #008000 } /* Name.Builtin.Pseudo */
+.vc { color: #19177C } /* Name.Variable.Class */
+.vg { color: #19177C } /* Name.Variable.Global */
+.vi { color: #19177C } /* Name.Variable.Instance */
+.il { color: #666666 } /* Literal.Number.Integer.Long */
+
+
+
+/* ---------------------------------------------------------
+Tables
+---------------------------------------------------------*/
+
+.body table,tr,th,td{
+    font-family: sans-serif;
+    border:1px solid black;
+    border-collapse:collapse;
+    font-size:1.2rem;
+    margin: 1em 0 2em 0;
+  }
+
+.body td, th{
+    text-align:left;
+    vertical-align:middle;
+    padding:4px;
+    word-break:break-all;}
+
+ .body th{font-weight:bold;}
+
+/* ---------------------------------------------------------
+Images
+---------------------------------------------------------*/
+
+ img{
+    max-width: 100%;
+    height: auto;
+    width: 100%\9; /* ie8 */
+    display:block;}
+
+/* ---------------------------------------------------------
+Mathjax
+---------------------------------------------------------*/
+
+ .MathJax_Display{
+    margin: 1em 0 1em 0;}
+
+/* ---------------------------------------------------------
+Inline Code
+---------------------------------------------------------*/
+
+ p code{
+    font-size: 14px;}
+
+/* ---------------------------------------------------------
+Sidebar
+---------------------------------------------------------*/
+
+.sidebar h4 a{
+    font-family: 'Lato', sans-serif;
+    font-weight: normal;
+    color: #424242;
+    font-size: 17px;
+}
+
+.sidebar h4{
+    padding-bottom: 2px;
+    border-bottom: 1px solid #ddd;
+}
+
+.sidebar h4:before{
+    content: '+ ';
+    color: #54c88a;
+}
+
+.sidebar {
+    margin-top: 2em;
+}
+
+.sidebar .list-group-item{
+    border: none;
+    padding: 1px 0 1px 5px;
+    font-size: 15px;
+    background-color: rgba(255,0,0,0);
+    list-style-type: square;
+    list-style-position: inside;
+    display:list-item;
+    color: #54c88a;
+}
+
+.sidebar .list-group-item a{
+    color: #424242;
+}
+
+.sidebar .list-group{
+    margin: 0;
+}
+
+.bar {
+    background: url('../images/bg-diagrams-big.svg') center center/cover no-repeat;
+}
+
+.hero {
+    text-align: center;
+    padding: 70px 1.5em 2.5em 1.5em;
+    color: #6cffb0;
+}
+
+.hero h1{
+    font-size: 45px;
+}
+
+@media screen and (max-width: 767px) {
+  .hero {
+    display: none;
+  }
+ }
+
+#content {
+ padding-bottom: 40px;
+ background: url('../images/icon-star.svg')  bottom center no-repeat;
+ background-size: 25px 25px;
+ }
+
+#content h2 {
+  margin-top: 30px;
+} 
