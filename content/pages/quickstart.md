@@ -30,7 +30,6 @@ Then tell Popily where the data can be accessed.  We can work with data from you
 
 ```javascript
 var sourceOptions = {
-    columns:columns, 
     connection_string: 'mysql://username:password@host:port/database',
     query: 'SELECT * FROM my_table'
 };

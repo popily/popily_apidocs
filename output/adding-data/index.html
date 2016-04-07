@@ -96,7 +96,6 @@
 <h2>Sending the data</h2>
 <p>Popily does a lot of work behind the scenes to figure out what type of information is in your data, and the relationhips between variables in your data could be visualized. So you just need to tell Popily where the data can be accessed, and we'll do the rest. We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. Here's an example where Popily connects directly to a database.</p>
 <div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
     <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM my_table&#39;</span>
 <span class="p">};</span>

@@ -10,7 +10,6 @@ Popily does a lot of work behind the scenes to figure out what type of informati
 
 ```javascript
 var sourceOptions = {
-    columns:columns, 
     connection_string: 'mysql://username:password@host:port/database',
     query: 'SELECT * FROM my_table'
 };

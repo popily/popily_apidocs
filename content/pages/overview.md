@@ -38,7 +38,6 @@ Then send that data to Popily.
 
 ```javascript
 var sourceOptions = {
-    columns: columns, 
     connection_string: 'mysql://username:password@host:port/database',
     query: 'SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;'
 };
