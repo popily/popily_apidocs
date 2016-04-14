@@ -193,17 +193,17 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
                 </div>
             </div>
 
-<p>What about if we only care about two <span class="tour-code tour-code-blue">product categories</span>: <span class="tour-code tour-code-purple">technology</span> and <span class="tour-code tour-code-red">furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
+<p>What about if we only care about two <span class="tour-code tour-code-green">product categories</span>: <span class="tour-code tour-code-purple">technology</span> and <span class="tour-code tour-code-red">furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
 
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
         columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
     calculation: <span class="tour-code-teal">'sum'</span>
-<span class="code-addition">    transformations: [{
-        column: <span class="tour-code-blue">'Product Category'</span>,
+    transformations: [{
+        column: <span class="tour-code-green">'Product Category'</span>,
         op: 'eq' // "equals"
         values: [<span class="tour-code-purple">'Technology'</span>, <span class="tour-code-red">'Furniture'</span>]
-    }]</span>
+    }]
 };
 
 popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
