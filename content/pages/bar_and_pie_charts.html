@@ -1,0 +1,188 @@
+<html>
+
+<head>
+    <title>Bar And Pie Charts</title>
+    <meta name="category" content="Examples" />
+    <meta name="sortorder" content="1" />
+</head>
+
+<body>
+
+<p>Popily is fundamentally different from other analytics products. Popily is not a chart-builder, but an advanced analytics service powered by our intelligent analytics engine, called “Maggie.”</p>
+
+<p>With Popily, you don’t construct the charts you want. Instead you tell Popily a relationship in your data that you are interested in, and Popily returns with a best-practice visualization accurately representing that relationship. Let's dive right into some examples to demonstrate the point.</p>
+
+<p>Imagine we care about the relationship between sales and the type of product sold. What is the best practice for visualizing this relationship? With traditional analytics tools, you have to answer that question explicitly before writing a single line for code. With Popily, you never have to answer that question — just ask Popily for the average sales and product category, and recieve a best-practice interactive visualization of that relationship.</p>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="chart-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<p>Want to see how easy that was? Here is the code used to generate the data visuzaliation above:</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+source: 'sales-data',
+columns: ['Sales', 'Product Category'],
+calculation: 'average'
+};
+
+popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
+
+<p>As you can plainly see, we were never forced to specify the type of chart or submit precalculated data. All we did was tell Popily the relationships we were interested in see, and in return we recieved a data visualization of that relationship.</p>
+
+<p>We can see the power of Popily's intelligent analytics engine by asking for more complicated analyses. Imagine we are now interested in the <span class='tour-code tour-code-red'>average</span> of sales of products in different categories and the types of customers who bought them. How best might this three dimensional relationship be displayed? With D3 and other charting libraries, you can't get started without answering that question. With Popily, the question is answered for you, all you need to do is specify the relationship you care about: <span class='tour-code tour-code-yellow'>sales</span>, <span class='tour-code tour-code-green'>product category</span>, and <span class='tour-code tour-code-blue'>customer segment</span>:</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class='tour-code-yellow'>'Sales'</span>, <span class='tour-code-green'>'Product Category'</span>,<span class='tour-code-blue'>'Customer Segment'</span>],
+    calculation: '<span class='tour-code-red'>average</span>',
+};
+
+popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
+
+
+<p>And Popily returns the best practice data visualization for that relationship:</p>
+
+        <div class='row'>
+            <div class='col-sm-12'>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="chart-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<p>Now we can start to see the power of Popily's intelligent analytics engine. But we can take it farther, much farther. Using the example from above, now let's imagine that instead of the average sale, we want to look at the <span class='tour-code tour-code-teal'>sum</span> total of sales. How should this relationship be displayed differently than an average sales? Again, Popily intelligent decides for you:</p>
+
+        <div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class='tour-code-yellow'>'Sales'</span>, <span class='tour-code-green'>'Product Category'</span>,<span class='tour-code-blue'>'Customer Segment'</span>],
+    calculation: <span class='tour-code-teal'>'sum'</span>
+};
+
+popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
+
+<p>Notice something different about this chart? Popily's analytics engine realized that your new request needed to be visualized in a different way, and automatically made the change for you.</p>
+
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<p>What about if we only care about two <span class='tour-code tour-code-blue'>product categories</span>: <span class='tour-code tour-code-purple'>technology</span> and <span class='tour-code tour-code-red'>furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+        columns: [<span class='tour-code-yellow'>'Sales'</span>, <span class='tour-code-green'>'Product Category'</span>,<span class='tour-code-blue'>'Customer Segment'</span>],
+    calculation: <span class='tour-code-teal'>'sum'</span>
+<span class='code-addition'>    transformations: [{
+        column: <span class='tour-code-blue'>'Product Category'</span>,
+        op: 'eq' // "equals"
+        values: [<span class='tour-code-purple'>'Technology'</span>, <span class='tour-code-red'>'Furniture'</span>]
+    }]</span>
+};
+
+popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
+
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Now you can see the real difference between Popily and other analytical products. Popily is not a tool for building charts, Popily is an intelligent analytics engine for automated customer-facing analytics generation. You tell Popily the relationship you want and Popily does the rest.</p>
+
+<div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href='../introduction/'>&#x21e6; Introduction</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href='../line-and-area-charts/'>Line & Area Charts &#x21e8;</a></button>
+  </div>
+</div>
+
+
+            <script>
+            var insightOptions = {
+                source: 'superstore-sales-csv-5',
+                columns: ['Product Category'],
+                calculation: 'ratio',
+            };
+
+            popily.chart.getAndRender('#chart-6', insightOptions);
+
+            </script>
+
+        <script>
+            var insightOptions = {
+                source: 'superstore-sales-csv-5',
+                columns: ['Sales', 'Product Category'],
+                calculation: 'average'
+            };
+
+            popily.chart.getAndRender('#chart-1', insightOptions);
+        </script>
+
+
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'average',
+        };
+
+        popily.chart.getAndRender('#chart-2', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'sum',
+        };
+
+        popily.chart.getAndRender('#chart-3', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'sum',
+            transformations: [{
+                column: 'Product Category',
+                op: 'eq',
+                values: ['Technology', 'Furniture']
+            }]
+        };
+
+        popily.chart.getAndRender('#chart-4', insightOptions);
+
+        </script>
+
+</body>
+
+</html>

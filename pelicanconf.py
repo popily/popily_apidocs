@@ -33,7 +33,7 @@ ARTICLE_SAVE_AS = '{category}/{slug}.html'
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = True
 
-STATIC_PATHS = ['images', 'extra/CNAME', 'extra/favicon.ico']
+STATIC_PATHS = ['images', 'fonts', 'extra/CNAME', 'extra/favicon.ico']
 EXTRA_PATH_METADATA = {
     'extra/favicon.ico': {'path': 'favicon.ico'},
     'extra/CNAME': {'path': 'CNAME'}

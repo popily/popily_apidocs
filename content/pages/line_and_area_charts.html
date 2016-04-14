@@ -1,0 +1,172 @@
+<html>
+
+<head>
+    <title>Line And Area Charts</title>
+    <meta name="category" content="Examples" />
+    <meta name="sortorder" content="2" />
+</head>
+
+<body>
+
+<p>With Popily, you focus on the relationships in your data that you care about, and Popily the heavy lifting to return beautiful, interactive, best-practice visualizations of that relationship. On the previous page we looked at the relationship between sales, product categories, and types of customers. Now, let us look at <span class='tour-code tour-code-red'>average</span> <span class='tour-code tour-code-blue'>sales</span> and <span class='tour-code tour-code-green'>date</span>. All we need to do is change the columns we care about to sales and order date and Popily's analytic engine does the rest.</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class='tour-code-blue'>'Sales'</span>, <span class='tour-code-green'>'Order Date'</span>],
+    calculation: <span class='tour-code-red'>'average'</span>
+};
+
+popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="chart-1">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<p>Popily has gathered the calculations necessary, restrcutured the data as necessary, and returned a chart visualization the requested relationship. But what happenes when we add a new column, perhaps <span class='tour-code tour-code-yellow'>customer segment</span>? Again, all it takes is adding the column we care about to our request:</p>
+
+    <div class="highlight"><pre class='well'>var insightOptions = {
+        source: 'sales-data',
+        columns: [<span class='tour-code-blue'>'Sales'</span>, <span class='tour-code-green'>'Order Date'</span>,<span class='code-addition tour-code-yellow'>'Customer Segment'</span>],
+        calculation: <span class='tour-code-red'>'average'</span>
+    };
+
+    popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
+
+        <div class='row'>
+            <div class='col-sm-12'>
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="chart-2">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    <p>And if we want a different relationship? Say, the <span class='tour-code tour-code-purple'>sum total</span> of sales? We just ask Popily for that relationship and the analytics engine intelligent decides on the best visualization for that relationship and creates it.</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class='tour-code-blue'>'Sales'</span>, <span class='tour-code-green'>'Order Date'</span>,<span class='code-addition tour-code-yellow'>'Customer Segment'</span>],
+    calculation: <span class='tour-code-purple'>'sum'</span>,
+};
+
+popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
+
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-3">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <p>Notice a difference between the two charts above? Popily's analytics engine recognized the need to both run a different calculation, but more importantly to restructure the data to create a different type of visualization which best revealed the relationship requested.</p>
+
+            <p>What happens if we only care about the relationship when <span class='tour-code tour-code-red'>average</span> <span class='tour-code tour-code-blue'>sales</span> are <span class='tour-code tour-code-teal'>greater than</span> <span class='tour-code tour-code-darkblue'>$1500</span>? Just tell Popily's analytics engine and see that relationship visualized.</p>
+
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+        columns: [<span class='tour-code-blue'>'Sales'</span>, <span class='tour-code-green'>'Order Date'</span>,<span class='tour-code-yellow'>'Customer Segment'</span>],
+    calculation: <span class='tour-code-red'> 'average'</span>,
+    transformations: [{
+        column: <span class='tour-code-blue'>'Sales'</span>,
+        op: <span class='tour-code-teal'>'gt'</span>, // Greater than
+        values: [<span class='tour-code-darkblue'>'1500'</span>]
+    }]
+};
+
+popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
+
+            <div class='row'>
+                <div class='col-sm-12'>
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-5">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+<p>As you can see, Popily's relational analytics engine allows users to focus on finding the relationships they care about rather than wasting time and energy on converting that relationship into a best practice visualization. With Popily, just tell the analytics the relationship you care about and get returned a visualization of that relationship.</p>
+
+<p>This is interesting, but Popily analytics engine can do much more.</p>
+
+<div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href='../bar-and-pie-charts/'>&#x21e6; Bar & Pie Charts</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href='../time-series-charts/'>Time Series Charts &#x21e8;</a></button>
+  </div>
+</div>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Order Date', 'Sales'],
+            calculation: 'average'
+        };
+
+        popily.chart.getAndRender('#chart-1', insightOptions);
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Order Date', 'Sales','Customer Segment'],
+            calculation: 'average',
+        };
+
+        popily.chart.getAndRender('#chart-2', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Order Date', 'Sales','Customer Segment'],
+            calculation: 'sum',
+        };
+
+        popily.chart.getAndRender('#chart-3', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Order Date', 'Sales','Customer Segment'],
+            calculation: 'average',
+            transformations: [{
+                column: 'Sales',
+                op: 'gt',
+                values: [1500]
+            },
+        ]
+        };
+
+        popily.chart.getAndRender('#chart-5', insightOptions);
+
+        </script>
+
+
+
+</body>
+
+</html>

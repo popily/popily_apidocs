@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Maps And Geo</title>
+    <meta name="category" content="Examples" />
+    <meta name="sortorder" content="5" />
+</head>
+
+<body>
+
+    <p>Popily frees you and your team from the minutia of building visualizations for each type of relationship you care about. Instead, just tell Popily the relationships you want and Popily's analytics engine does the restructing, calculations, and decision-making to create best-practice visualizations to represent that relationship.</p>
+
+    <p>In previous examples, were interested in the category of a product and profit. Popily analyized that relationship and returned a bar chart to visualize that relationship. But what happens if instead we are interested in the <span class='tour-code tour-code-blue'>category of a product</span> and the <span class='tour-code tour-code-red'>location of the order</span>? Popily's analytic engine recognizes difference in the new request and returns the appropriate visualization.</p>
+
+    <div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'superstore-sales-csv-5',
+    columns: [<span class='tour-code-blue'>'Product Category'</span>, <span class=' tour-code-red'>'Location'</span>],
+};
+
+popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="chart-1">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+<p>What is were were insterested in the relationship between <span class='tour-code tour-code-darkblue'>total</span> <span class='tour-code tour-code-green'>profit</span> and the <span class='tour-code tour-code-yellow'>state</span> where the order was place? Popily's analyics engine recognizes this change and makes a decision to change the visualization type accordingly:</p>
+<div class="highlight"><pre class='well'>var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class='tour-code-yellow'>'State'</span>, <span class='tour-code-green'>'Profit'</span>],
+    calculation: <span class='tour-code-darkblue'>'sum'</span>
+};
+
+popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
+
+    <div class='row'>
+        <div class='col-sm-12'>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="chart-3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<p>Using Popily's powerful analytics engine, you can construct entire dashboards, reports, or other analytics without worrying about constructing those visualizations by hand. With Popily, simply specify the relationship you want to see, and Popily makes all the decisions and calculations for you.</p>
+
+    <div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default btn-lg btn-green"><a href='../scatterplots/'>&#x21e6; Scatterplots</a></button>
+      </div>
+      <div class="btn-group" role="group">
+        <button type="button" class="btn btn-default btn-lg btn-green"><a href='../basic-chart-customization/'> Customization &#x21e8;</a></button>
+      </div>
+    </div>
+
+    <script>
+    var insightOptions = {
+        source: 'superstore-sales-csv-5',
+        columns: ['Location', 'Product Category'],
+    };
+
+    popily.chart.getAndRender('#chart-1', insightOptions);
+
+    </script>
+
+    <script>
+    var insightOptions = {
+        source: 'superstore-sales-csv-5',
+        columns: ['State', 'Profit'],
+        calculation: 'sum',
+        chartType: 'choropleth'
+    };
+
+    popily.chart.getAndRender('#chart-3', insightOptions);
+
+    </script>
+</body>
+
+</html>

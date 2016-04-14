@@ -3,11 +3,25 @@
         <a href="{{SITE_URL}}/">Get Started!</a>
     </h4>
     {% for page in pages|sort(attribute='sortorder') %}
-    {% if page.title != 'Get Started' %}
+    {% if ((page.title != 'Get Started') and (page.category != 'Examples')) %}
     <h4>
         <a href="{{SITE_URL}}/{{page.slug}}">{{page.title}}</a>
     </h4>
     {% endif %}
     {% endfor %}
 
+    <h4>
+      <a data-toggle="collapse" href="#collapse1">Product Tour</a>
+    </h4>
+    <div id="collapse1" class="collapse">
+    <ol class="list-group">
+    {% for page in pages|sort(attribute='sortorder') %}
+    {% if page.category == 'Examples' %}
+    <li class="list-group-item"><a href="{{SITE_URL}}/{{page.slug}}">{{page.title}}</a></li>
+    {% endif %}
+    {% endfor %}
+    <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
+
+</ol>
+</div>
 </div>

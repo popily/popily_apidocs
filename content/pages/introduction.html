@@ -1,0 +1,123 @@
+<html>
+
+<head>
+    <title>Introduction</title>
+    <meta name="category" content="Examples" />
+    <meta name="sortorder" content="0" />
+</head>
+
+<body>
+
+<p>Your customers like your product, but they are demanding something more: analytics. Enter Popily. With Popily, you can add advanced customer-facing analytics with only a few lines of code. In this tour we will see how to do just that, with real data, and read code.</p>
+
+    <div class='row'>
+                <div class='col-sm-12'>
+                    <table class="table table-striped table-condensed">
+                        <thead>
+                            <tr style="text-align: right;">
+                                <th>Order ID</th>
+                                <th>Order Date</th>
+                                <th>Sales</th>
+                                <th>Profit</th>
+                                <th>Customer Name</th>
+                                <th>Customer Segment</th>
+                                <th>Product Category</th>
+                                <th>State</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>3</td>
+                                <td>10/13/10</td>
+                                <td>261.5400</td>
+                                <td>-213.25</td>
+                                <td>Muhammed MacIntyre</td>
+                                <td>Small Business</td>
+                                <td>Office Supplies</td>
+                                <td>Alabama</td>
+                                <td>(-6.0816889999999999, 145.39188100000001)</td>
+                            </tr>
+                            <tr>
+                                <td>293</td>
+                                <td>10/1/12</td>
+                                <td>10123.0200</td>
+                                <td>457.81</td>
+                                <td>Barry French</td>
+                                <td>Consumer</td>
+                                <td>Office Supplies</td>
+                                <td>Alaska</td>
+                                <td>(-5.2070829999999999, 145.78870000000001)</td>
+                            </tr>
+                            <tr>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                                <td>...</td>
+                            </tr>
+                            <tr>
+                                <td>56550</td>
+                                <td>4/8/11</td>
+                                <td>823.7800</td>
+                                <td>343.05</td>
+                                <td>Frank Hawley</td>
+                                <td>Home Office</td>
+                                <td>Furniture</td>
+                                <td>Maryland</td>
+                                <td>(-27.466666700000001, -153.0166667)</td>
+                            </tr>
+                            <tr>
+                                <td>56550</td>
+                                <td>4/8/11</td>
+                                <td>469.8375</td>
+                                <td>-159.24</td>
+                                <td>Frank Hawley</td>
+                                <td>Home Office</td>
+                                <td>Technology</td>
+                                <td>Massachusetts</td>
+                                <td>(-27.466666700000001, 153.0166667)</td>
+                            </tr>
+                            <tr>
+                                <td>56581</td>
+                                <td>2/8/09</td>
+                                <td>2026.0100</td>
+                                <td>580.43</td>
+                                <td>Grant Donatelli</td>
+                                <td>Consumer</td>
+                                <td>Furniture</td>
+                                <td>Michigan</td>
+                                <td>(-23.378941000000001, 150.51232300000001)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+<p>Above is a few rows from a sales database that might be relevant to your users. The data includes dates, names, prices, categories, and locations. With traditional analytics products, turning this data into customer-facing analytics would replace replicated data restructuing and modeling. With Popily, all that is taken care of for you in a few lines of code.</p>
+
+<div class="highlight"><pre class='well'>
+var sourceOptions = {
+    connection_string: 'mysql://username:password@host:port/database',
+    query: 'SELECT * FROM my_table'
+};
+
+popily.api.addSource(sourceOptions, function(err, source) {});
+</pre></div>
+
+<p>Simple right? Now let's get started creating some analytics.</p>
+
+<div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href='../bar-and-pie-charts/'>Start Product Tour &#x21e8;</a></button>
+  </div>
+</div>
+
+
+</body>
+
+</html>
