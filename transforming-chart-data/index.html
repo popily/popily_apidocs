@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Popily API Documentation">
+    <meta name="author" content="Popily">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Popily API Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../theme/css/popily.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <script src="../theme/js/popily.js"></script>
+    <script src="../theme/js/popily-geo.js"></script>
+    <script>
+    popily.api.setToken('d39c69f05c5fae5cbcbe6a3b6ebac693c6ffb807');
+    </script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        
+
+</head>
+
+<body>
+    <div class='bar'>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='main-logo' href="http://popily.com/" title="Home"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://popily.com/about/"> About The Team </a></li>
+                    <li><a href="http://developers.popily.com/"> API Docs </a></li>
+                    <!-- <li><a href="http://blog.popily.com/"> Blog </a></li> -->
+                    <li><a href="http://partiallyderivative.com"> Podcast </a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </nav>
+        <div class="hero">
+            <h1 class="post-title">Made For Developers With <span style='color:#e74c3c; font-size: 1.5em;position: relative; top: 8px;'>&hearts;</span></h1>
+        </div>
+    </div>
+    <!-- end of header section -->
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm-3'>
+<div class="sidebar panel-group">
+    <h4>
+        <a href="/">Get Started!</a>
+    </h4>
+    <h4>
+        <a href="/data-analysis-101">Data Analysis 101</a>
+    </h4>
+    <h4>
+        <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/adding-data">Adding Data</a>
+    </h4>
+    <h4>
+        <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/transforming-chart-data">Transforming Chart Data</a>
+    </h4>
+    <h4>
+        <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
+    </h4>
+
+    <h4>
+      <a data-toggle="collapse" href="#collapse1">Product Tour</a>
+    </h4>
+    <div id="collapse1" class="collapse">
+    <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
+    <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
+
+</ol>
+</div>
+</div>            </div>
+            <div class='col-sm-9'>
+<section id="content" class="body">
+  <header>
+    <h1>
+      Transforming Chart Data
+    </h1>
+  </header>
+<p>Every Popily visualization represents the relationship between two or more columns. We call these relationships <strong>Insights</strong>. By default Popily paints the entire picture of a relationship, but you can be selective about which aspects of that relationship you share with your customers. In short: you can limit what shows up in the chart.</p>
+<p>For example let's say you have a dataset of purchases, and each purchase has a Purchase Price and a Location. To get the relationship between these columns you'd make this request:</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">single</span><span class="o">:</span> <span class="kc">true</span>  
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;my-purchases-dataset&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">,</span> 
+                        <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">insight</span><span class="p">)</span> <span class="p">{</span>
+                            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">insight</span><span class="p">);</span>
+                        <span class="p">});</span>
+</pre></div>
+
+
+<p>When you check out the console log, you'll see something like this:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;refresh_rate&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Average Purchase Price by Location&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;calculation&quot;</span><span class="p">:</span> <span class="s2">&quot;count&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;purchase-price-location&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;source&quot;</span><span class="p">:</span> <span class="mi">336</span><span class="p">,</span>
+    <span class="nt">&quot;insight_metadata&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">246367</span><span class="p">,</span>
+    <span class="nt">&quot;columns&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;27.50&quot;</span><span class="p">,</span> <span class="s2">&quot;35.27&quot;</span><span class="p">,</span> <span class="s2">&quot;99.12&quot;</span><span class="p">,</span> <span class="s2">&quot;100.00&quot;</span><span class="p">,</span> <span class="s2">&quot;12.34&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;column_header&quot;</span><span class="p">:</span> <span class="s2">&quot;Purchase Price&quot;</span>
+        <span class="p">},</span> 
+        <span class="p">{</span>
+            <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s2">&quot;Lowes&quot;</span><span class="p">,</span> <span class="s2">&quot;Home Depot&quot;</span><span class="p">,</span> <span class="s2">&quot;Sears&quot;</span><span class="p">,</span> <span class="s2">&quot;Ace Hardware&quot;</span><span class="p">,</span> <span class="s2">&quot;True Value&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;category&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;column_header&quot;</span><span class="p">:</span> <span class="s2">&quot;Location&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>This will produce a bar chart with Location along the bottom and bars representing the average purchase price of each location. You can limit what is displayed in the chart using <code>transformations</code>. For example let's only show bars where the value is over $20.</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>A <code>transformation</code> has three properties: </p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>column</td>
+<td>The column you'd like to act on</td>
+</tr>
+<tr>
+<td>value(s)</td>
+<td><code>value</code> or a list of <code>values</code> are accepted</td>
+</tr>
+<tr>
+<td>op</td>
+<td>Stands for "operation" -- like equals, less than, greater than, etc</td>
+</tr>
+</tbody>
+</table>
+<p>We're always expanding the available operations to make Popily more flexible. Currently we have:</p>
+<table>
+<thead>
+<tr>
+<th>Op</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lt</td>
+<td>Less than</td>
+</tr>
+<tr>
+<td>lte</td>
+<td>Less than or equal to</td>
+</tr>
+<tr>
+<td>gt</td>
+<td>Greater than</td>
+</tr>
+<tr>
+<td>gte</td>
+<td>Greater than or equal to</td>
+</tr>
+<tr>
+<td>eq</td>
+<td>Equals</td>
+</tr>
+<tr>
+<td>countUnique</td>
+<td>Counts the unique values for a given column</td>
+</tr>
+</tbody>
+</table>
+<p>Multiple transformations can be applied to the same Insight. For instance we could limit the chart to display only to average Purchase Prices more than $20 at Lowes or Home Depot.</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;gt&#39;</span><span class="p">,</span>
+            <span class="nx">value</span><span class="o">:</span> <span class="mi">20</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Lowes&#39;</span><span class="p">,</span> <span class="s1">&#39;Home Depot&#39;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>Note: each transformation will be performed in the order it is received. This becomes particularly important when applying transformations like <code>countUnique</code>. For example if our purchases dataset also had Product Type and State columns, we could really go to town:</p>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Product Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">],</span>
+    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+    <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Lowes&#39;</span><span class="p">,</span> <span class="s1">&#39;Home Depot&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;State&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;eq&#39;</span><span class="p">,</span>
+            <span class="nx">values</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Texas&#39;</span><span class="p">,</span> <span class="s1">&#39;California&#39;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Product Type&#39;</span><span class="p">,</span>
+            <span class="nx">op</span><span class="o">:</span> <span class="s1">&#39;countUnique&#39;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">};</span>
+
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
+
+
+<p>That list of transformations will give us the count of each Product Type where the State is Texas or California and the Location is Lowes or Home Depot. </p>
+</section>
+            </div>
+        </div>
+
+    </div>
+    <!-- start of footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <center>
+                    &copy; <time datetime="2016">2016</time> Popily, LLC All rights reserved.
+                </center>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics Code Start -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61764668-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics Code End -->
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to
+        left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>
