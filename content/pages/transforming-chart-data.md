@@ -84,6 +84,7 @@ lte | Less than or equal to
 gt | Greater than
 gte | Greater than or equal to
 eq | Equals
+in | A list of values in which the value you want should appear
 countUnique | Counts the unique values for a given column
 
 Multiple transformations can be applied to the same Insight. For instance we could limit the chart to display only to average Purchase Prices more than $20 at Lowes or Home Depot.
@@ -100,8 +101,8 @@ var insightOptions = {
         },
         {
             column: 'Location',
-            op: 'eq',
-            values: ['Lowes', 'Home Depot']
+            op: 'in',
+            value: ['Lowes', 'Home Depot']
         }
     ]
 };
@@ -118,13 +119,13 @@ var insightOptions = {
     transformations: [
         {
             column: 'Location',
-            op: 'eq',
-            values: ['Lowes', 'Home Depot']
+            op: 'in',
+            value: ['Lowes', 'Home Depot']
         },
         {
             column: 'State',
-            op: 'eq',
-            values: ['Texas', 'California']
+            op: 'in',
+            value: ['Texas', 'California']
         },
         {
             column: 'Product Type',

@@ -80,8 +80,10 @@ var insightOptions = {
     // with average Item Cost, as opposed to average Sale Amount with 
     // with total Item Cost. 
     calculations: [
-        column: 'Sale Amount',
-        calculation: 'average'
+        {
+            column: 'Sale Amount',
+            calculation: 'average'
+        }
     ],
     
     // Limit to the output to Sale Dates where average Sale Amount 

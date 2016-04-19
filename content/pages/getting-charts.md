@@ -33,7 +33,12 @@ By default Popily returns the chart that it thinks will be most interesting, but
 var insightOptions = {
     source: 'my-employee-salary-source-slug', 
     columns: ['employees.favorite_color', 'salaries.amount'],
-    calculation: 'average'
+    calculations: [
+        {
+            column: 'salaries.amount',
+            calculation: 'average'
+        }
+    ]
 };
 
 popily.chart.getAndRender('#some-element', insightOptions);

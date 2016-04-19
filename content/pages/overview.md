@@ -76,7 +76,12 @@ Popily does a little data science magic in the background to try and figure out 
 var insightOptions = {
     source: 'my-employee-salary-source-slug', 
     columns: ['employees.favorite_color', 'salaries.amount'],
-    calculation: 'average'
+    calculations: [
+        {
+            column: 'salaries.amount',
+            calculation: 'average'
+        }
+    ]
 };
 
 popily.chart.getAndRender('#some-element', insightOptions);
@@ -89,7 +94,12 @@ Now that you have the calculated relationship you want, you can transform it to 
 var insightOptions = {
     source: 'my-employee-salary-source-slug', 
     columns: ['employees.favorite_color', 'salaries.amount'],
-    calculation: 'average',
+    calculations: [
+        {
+            column: 'salaries.amount',
+            calculation: 'average'
+        }
+    ],
     transformations: [
         {
             column: 'employees.favorite_color',
