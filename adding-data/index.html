@@ -73,16 +73,34 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
+        <a href="/introduction">Introduction</a>
+    </h4>
+    <h4>
+        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
+    </h4>
+    <h4>
+        <a href="/line-and-area-charts">Line And Area Charts</a>
+    </h4>
+    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
+        <a href="/time-series-charts">Time Series Charts</a>
+    </h4>
+    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
+        <a href="/scatterplots">Scatterplots</a>
+    </h4>
+    <h4>
         <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -90,19 +108,15 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
+    <h4>
+        <a href="/basic-chart-customization">Basic Chart Customization</a>
+    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
-    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
-    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
-    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
-    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
-    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
-    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
-    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -118,7 +132,7 @@
 <p>In Popily, the data you put together for analysis is called a <strong>Data Source</strong>. This could be the result of a database query, a request to an API, or a CSV file. Sending data to Popily for analysis is a two-step process:</p>
 <h2>Sending the data</h2>
 <p>Popily does a lot of work behind the scenes to figure out what type of information is in your data, and the relationhips between variables in your data could be visualized. So you just need to tell Popily where the data can be accessed, and we'll do the rest. We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. Here's an example where Popily connects directly to a database.</p>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
     <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM my_table&#39;</span>
 <span class="p">};</span>
@@ -130,7 +144,7 @@
 
 
 <p>When adding a Data Source from a URL (either an API endpoint or the location of a CSV file), you use the <code>url</code> property. </p>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://mysite.com/data/some-csv.csv&#39;</span>
 <span class="p">};</span>
@@ -142,17 +156,17 @@
 
 
 <p>Lastly, when using the Python, Node.js or any other server-side clients, you can also upload files. In Python:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">popily</span>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">popily</span>
 
-<span class="n">popily_api</span> <span class="o">=</span> <span class="n">popily</span><span class="o">.</span><span class="n">Popily</span><span class="p">(</span><span class="s1">&#39;YOUR API TOKEN&#39;</span><span class="p">)</span>
+<span class="n">popily_api</span> <span class="o">=</span> <span class="n">popily</span><span class="o">.</span><span class="n">Popily</span><span class="p">(</span><span class="s">&#39;YOUR API TOKEN&#39;</span><span class="p">)</span>
 
-<span class="n">your_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/path/to/your/file.csv&#39;</span><span class="p">)</span>
+<span class="n">your_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;/path/to/your/file.csv&#39;</span><span class="p">)</span>
 <span class="n">source</span> <span class="o">=</span> <span class="n">popily_api</span><span class="o">.</span><span class="n">add_source</span><span class="p">(</span><span class="n">file_obj</span><span class="o">=</span><span class="n">your_file</span><span class="p">)</span>
 </pre></div>
 
 
 <p>In Node.js:</p>
-<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">popily</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;popily&#39;</span><span class="p">)(</span><span class="s1">&#39;YOUR API TOKEN&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span class="kd">var</span> <span class="nx">popily</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;popily&#39;</span><span class="p">)(</span><span class="s1">&#39;YOUR API TOKEN&#39;</span><span class="p">);</span>
 
 <span class="nx">filePath</span> <span class="o">=</span> <span class="s1">&#39;/path/to/your/file.csv&#39;</span>
 <span class="kd">var</span> <span class="nx">sourceData</span> <span class="o">=</span> <span class="p">{</span>
@@ -167,7 +181,7 @@
 
 <p><strong>Note</strong>: Data Sources are processed asynchronously. So you'll get an immediate response from the API, but it may take a few seconds to a few minutes (depending on the size and shape of your data) for Popily to start producing Insights. This is only true when creating a new Data Source. Updates to a Data Source are performed in seconds.</p>
 <p>We'll get into more detail about how to retrieve data and render charts in the <a href="/getting-charts/">Getting Charts</a>, but just FYI, the easiest workaround for this is to poll for the Insight you want, like this:</p>
-<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
+<div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
@@ -178,7 +192,7 @@
 
 
 <p>You can also check the <code>status</code> of a Data Source at any time using its slug or id. </p>
-<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSource</span><span class="p">(</span><span class="s1">&#39;your-source-slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSource</span><span class="p">(</span><span class="s1">&#39;your-source-slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span> 
 <span class="p">});</span>
 </pre></div>
@@ -221,7 +235,7 @@
 </table>
 <p>If you ever need to access a list of Data Sources -- either for your account, or associated with a User you have created -- you can retrieve those from the <code>/sources/</code> API endpoint, which is exposed in each of our client libraries. </p>
 <p>For example, in our browser client:</p>
-<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API TOKEN || USER API TOKEN&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API TOKEN || USER API TOKEN&#39;</span><span class="p">);</span>
 <span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSources</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">sources</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sources</span><span class="p">);</span> 
 <span class="p">});</span>
