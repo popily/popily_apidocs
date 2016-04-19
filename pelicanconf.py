@@ -4,7 +4,7 @@ from __future__ import unicode_literals
 
 AUTHOR = 'Popily'
 SITENAME = 'Popily API Documentation'
-SITEURL = ''
+SITEURL = 'http://developers.popily.com'
 THEME = 'popily_apidocs_template/'
 
 PATH = 'content'

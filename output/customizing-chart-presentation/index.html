@@ -112,122 +112,206 @@
 <section id="content" class="body">
   <header>
     <h1>
-      Introduction
+      Customizing Chart Presentation
     </h1>
   </header>
-
-
-<p>Your customers like your product, but they are demanding something more: analytics. Enter Popily. With Popily, you can add advanced customer-facing analytics with only a few lines of code. In this tour we will see how to do just that, with real data, and read code.</p>
-
-    <div class="row">
-                <div class="col-sm-12">
-                    <table class="table table-striped table-condensed">
-                        <thead>
-                            <tr style="text-align: right;">
-                                <th>Order ID</th>
-                                <th>Order Date</th>
-                                <th>Sales</th>
-                                <th>Profit</th>
-                                <th>Customer Name</th>
-                                <th>Customer Segment</th>
-                                <th>Product Category</th>
-                                <th>State</th>
-                                <th>Location</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>3</td>
-                                <td>10/13/10</td>
-                                <td>261.5400</td>
-                                <td>-213.25</td>
-                                <td>Muhammed MacIntyre</td>
-                                <td>Small Business</td>
-                                <td>Office Supplies</td>
-                                <td>Alabama</td>
-                                <td>(-6.0816889999999999, 145.39188100000001)</td>
-                            </tr>
-                            <tr>
-                                <td>293</td>
-                                <td>10/1/12</td>
-                                <td>10123.0200</td>
-                                <td>457.81</td>
-                                <td>Barry French</td>
-                                <td>Consumer</td>
-                                <td>Office Supplies</td>
-                                <td>Alaska</td>
-                                <td>(-5.2070829999999999, 145.78870000000001)</td>
-                            </tr>
-                            <tr>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                                <td>...</td>
-                            </tr>
-                            <tr>
-                                <td>56550</td>
-                                <td>4/8/11</td>
-                                <td>823.7800</td>
-                                <td>343.05</td>
-                                <td>Frank Hawley</td>
-                                <td>Home Office</td>
-                                <td>Furniture</td>
-                                <td>Maryland</td>
-                                <td>(-27.466666700000001, -153.0166667)</td>
-                            </tr>
-                            <tr>
-                                <td>56550</td>
-                                <td>4/8/11</td>
-                                <td>469.8375</td>
-                                <td>-159.24</td>
-                                <td>Frank Hawley</td>
-                                <td>Home Office</td>
-                                <td>Technology</td>
-                                <td>Massachusetts</td>
-                                <td>(-27.466666700000001, 153.0166667)</td>
-                            </tr>
-                            <tr>
-                                <td>56581</td>
-                                <td>2/8/09</td>
-                                <td>2026.0100</td>
-                                <td>580.43</td>
-                                <td>Grant Donatelli</td>
-                                <td>Consumer</td>
-                                <td>Furniture</td>
-                                <td>Michigan</td>
-                                <td>(-23.378941000000001, 150.51232300000001)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-<p>Above is a few rows from a sales database that might be relevant to your users. The data includes dates, names, prices, categories, and locations. With traditional analytics products, turning this data into customer-facing analytics would replace replicated data restructuing and modeling. With Popily, all that is taken care of for you in a few lines of code.</p>
-
-<div class="highlight"><pre class="well">
-var sourceOptions = {
-    connection_string: 'mysql://username:password@host:port/database',
-    query: 'SELECT * FROM my_table'
-};
-
-popily.api.addSource(sourceOptions, function(err, source) {});
+<p>You can use any charting library with the output from Popily's API. However you'll probably prefer to use <a href="https://github.com/popily/popily-js">our JavaScript library</a>. It does useful things like selecting the most appropriate visualization based on the types of data being compared in any given Insight, automatically generates descriptions, and all of our visualizations are interactive and responsive out of the box!</p>
+<p>Plus you have an enormous amount of control over how your visualization appears. For starters, here are the types of visualizations Popily can produce (we're adding more all the time!).</p>
+<ul>
+<li>Bar charts/column charts</li>
+<li>Stacked bar charts/stacked column charts</li>
+<li>Grouped bar charts/grouped column charts</li>
+<li>Line charts/time series</li>
+<li>Stacked area/grouped time series</li>
+<li>Scatterplots/grouped scatterplots</li>
+<li>Gauge charts</li>
+<li>Pie charts (we're not snobs)</li>
+<li>Choropleth maps</li>
+<li>Interactive maps (dots on a map)</li>
+</ul>
+<p>Typically you'll add visualizations to the DOM using the handy <code>getAndRender</code> method, which retrieves an Insight from the API, decides how to visualize it, and draws it on the page. For example:</p>
+<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-element&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">insight</span><span class="o">:</span><span class="s1">&#39;some-insight-of-yours&#39;</span><span class="p">});</span>
 </pre></div>
 
-<p>Simple right? Now let's get started creating some analytics.</p>
 
-<div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
-  <div class="btn-group" role="group">
-    <button type="button" class="btn btn-default btn-lg btn-green"><a href="../bar-and-pie-charts/">Start Product Tour &#x21e8;</a></button>
-  </div>
-</div>
+<p>You can pass additional options to this method that give you fine-grained control over how your data is presented.</p>
+<table>
+<thead>
+<tr>
+<th>Option</th>
+<th>Description</th>
+<th>Example Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chartType</td>
+<td>The type of visualization</td>
+<td><code>bar</code>, <code>barStacked</code>, <code>barGrouped</code>, <code>bubble</code>, <code>line</code>, <code>multiLine</code>, <code>stackedArea</code>, <code>gauge</code>, <code>pie</code>, <code>scatterplot</code>, <code>scatterplotCategory</code>, <code>choropleth</code>, <code>interactiveMap</code></td>
+</tr>
+<tr>
+<td>colors</td>
+<td>A list of hex values for bars, pie slices, lines, etc.</td>
+<td><code>['#eee', '#555']</code></td>
+</tr>
+<tr>
+<td>xLabel</td>
+<td>String label for the x axis</td>
+<td>My X Axis</td>
+</tr>
+<tr>
+<td>yLabel</td>
+<td>String label for the y axis</td>
+<td>My Y Axis</td>
+</tr>
+<tr>
+<td>groupByColumn</td>
+<td>Column on the group by (aka z) axis. (The stacks in a stacked bar chart)</td>
+<td>Your Column Name</td>
+</tr>
+<tr>
+<td>xColumn</td>
+<td>Column that should go on the x axis</td>
+<td>Your Column Name</td>
+</tr>
+<tr>
+<td>height</td>
+<td>Chart height</td>
+<td><code>500</code></td>
+</tr>
+<tr>
+<td>width</td>
+<td>Chart width</td>
+<td><code>500</code></td>
+</tr>
+<tr>
+<td>rotated</td>
+<td>Rotate the chart so x axis is on the left instead the bottom</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>title</td>
+<td>Chart title</td>
+<td>String of custom title. For auto-generated title, use <code>true</code></td>
+</tr>
+<tr>
+<td>xOrder</td>
+<td>Order of the x axis (like bars in a bar chart)</td>
+<td><code>a-z</code>, <code>z-a</code>, <code>asc</code>, <code>desc</code></td>
+</tr>
+<tr>
+<td>barSize</td>
+<td>Relative size of bars in a bar chart</td>
+<td><code>.1</code></td>
+</tr>
+<tr>
+<td>lineSize</td>
+<td>Size of lines in a line chart</td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td>pointSize</td>
+<td>Size of points in a scatterplot</td>
+<td><code>3</code></td>
+</tr>
+<tr>
+<td>titleFontFamily</td>
+<td>Font of the chart title</td>
+<td><code>Arial</code></td>
+</tr>
+<tr>
+<td>titleFontSize</td>
+<td>Size of the chart title</td>
+<td><code>26px</code></td>
+</tr>
+<tr>
+<td>titleFontColor</td>
+<td>Color of the chart tytle</td>
+<td><code>red</code></td>
+</tr>
+<tr>
+<td>chartFontFamily</td>
+<td>Font of labels and text in the chart</td>
+<td><code>Lato</code></td>
+</tr>
+<tr>
+<td>chartFontSize</td>
+<td>Font size of labels and text in the chart</td>
+<td><code>16px</code></td>
+</tr>
+<tr>
+<td>chartFontColor</td>
+<td>Font color of labels and text in the chart</td>
+<td><code>#eee</code></td>
+</tr>
+<tr>
+<td>xGrid</td>
+<td>Vertical grid lines in charts</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>yGrid</td>
+<td>Horizontal grid lines in charts</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>xAxis</td>
+<td>Horizontal axis line in charts</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>yAxis</td>
+<td>Horizontal axis line in charts</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>time_interval</td>
+<td>Display into time groups</td>
+<td><code>day</code>, <code>month</code>, <code>year</code></td>
+</tr>
+<tr>
+<td>background</td>
+<td>Chart background color</td>
+<td><code>#eee</code></td>
+</tr>
+<tr>
+<td>skipAnimation</td>
+<td>Skip the chart loading animation</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>legend</td>
+<td>Display chart's legend</td>
+<td><code>false</code></td>
+</tr>
+<tr>
+<td>xRotation</td>
+<td>Turn off x-axis label smart-rotation</td>
+<td><code>true</code></td>
+</tr>
+<tr>
+<td>yRotation</td>
+<td>Turn off y-axis label smart-rotation</td>
+<td><code>true</code></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+   <span class="nx">chartType</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
+   <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;#444&#39;</span><span class="p">,</span> <span class="s1">&#39;#999&#39;</span><span class="p">],</span>
+   <span class="nx">xLabel</span><span class="o">:</span> <span class="s1">&#39;Thing on the Bottom&#39;</span><span class="p">,</span>
+   <span class="nx">yLabel</span><span class="o">:</span> <span class="s1">&#39;Thing on the Left&#39;</span><span class="p">,</span>
+   <span class="nx">groupByColumn</span><span class="o">:</span> <span class="s1">&#39;Store Location&#39;</span><span class="p">,</span>
+   <span class="nx">height</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+   <span class="nx">width</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+   <span class="nx">rotated</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
+   <span class="nx">title</span><span class="o">:</span> <span class="s1">&#39;This Chart Rules&#39;</span><span class="p">,</span>
+   <span class="nx">xOrder</span><span class="o">:</span> <span class="s1">&#39;a-z&#39;</span><span class="p">,</span>
+   <span class="nx">barSize</span><span class="o">:</span> <span class="p">.</span><span class="mi">5</span>
+<span class="p">};</span>
 
-
-
+<span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+</pre></div>
 </section>
             </div>
         </div>
