@@ -39,17 +39,24 @@ rotated | Rotate the chart so x axis is on the left instead the bottom | ``true`
 title | Chart title | String of custom title. For auto-generated title, use ``true``
 xOrder | Order of the x axis (like bars in a bar chart) | ``a-z``, ``z-a``, ``asc``, ``desc``
 barSize | Relative size of bars in a bar chart | ``.1``
-lineSize | Size of lines in a line chart |
-pointSize | Size of points in a scatterplot |
+lineSize | Size of lines in a line chart | ``3``
+pointSize | Size of points in a scatterplot | ``3``
 titleFontFamily | Font of the chart title | ``Arial``
 titleFontSize | Size of the chart title | ``26px``
 titleFontColor | Color of the chart tytle | ``red``
-chartFontFamily | Font of labels and text in the chart |
-chartFontSize | Font size of labels and text in the chart |
-chartFontColor | Font color of labels and text in the chart |
-xGrid | Vertical grid lines in charts |
-yGrid | Horizontal grid lines in charts |
-time_interval | Display into time groups |
+chartFontFamily | Font of labels and text in the chart | ``Lato``
+chartFontSize | Font size of labels and text in the chart | ``16px``
+chartFontColor | Font color of labels and text in the chart | ``#eee``
+xGrid | Vertical grid lines in charts | ``true``
+yGrid | Horizontal grid lines in charts | ``true``
+xAxis | Horizontal axis line in charts | ``false``
+yAxis | Horizontal axis line in charts | ``false``
+time_interval | Display into time groups | ``day``, ``month``, ``year``
+background | Chart background color | ``#eee``
+skipAnimation | Skip the chart loading animation | ``true``
+legend | Display chart's legend | ``false``
+xRotation | Turn off x-axis label smart-rotation | ``true``
+yRotation | Turn off y-axis label smart-rotation | ``true``
 
 ```javascript
 var insightOptions = {
