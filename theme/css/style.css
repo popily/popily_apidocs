@@ -275,7 +275,7 @@ Source: http://www.sebastianraschka.com/CSS/codehilite.css
 .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
 .sx { color: #008000 } /* Literal.String.Other */
 .sr { color: #BB6688 } /* Literal.String.Regex */
-.s1 { color: #BA2121 } /* Literal.String.Single */
+.s1 { color: #26863C } /* Literal.String.Single */
 .ss { color: #19177C } /* Literal.String.Symbol */
 .bp { color: #008000 } /* Name.Builtin.Pseudo */
 .vc { color: #19177C } /* Name.Variable.Class */
@@ -301,7 +301,7 @@ Tables
     text-align:left;
     vertical-align:middle;
     padding:4px;
-    word-break:break-all;}
+    word-break:normal;}
 
  .body th{font-weight:bold;}
 
@@ -359,7 +359,6 @@ Sidebar
     padding: 1px 0 1px 5px;
     font-size: 15px;
     background-color: rgba(255,0,0,0);
-    list-style-type: square;
     list-style-position: inside;
     display:list-item;
     color: #54c88a;
@@ -401,4 +400,94 @@ Sidebar
 
 #content h2 {
   margin-top: 30px;
-} 
+}
+
+code {
+    color: #266526;
+    background-color: #E0FFD5;}
+
+.c3 svg {
+        display: flex;
+    }
+
+.code-addition {
+    font-weight: bold;
+}
+
+.btn-green {
+    color: #fff;
+    background-color: #54c88a;
+    border-color: #46a976;
+}
+
+.btn-green:hover {
+    color: #fff;
+    background-color: #46a976;
+    border-color: #46a976;
+}
+
+.btn-green a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-green a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.tour-pagination {
+    margin-top: 40px;
+    margin-top: 30px;
+}
+
+.tour-code{
+    font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+    padding: 2px 4px;
+    color: #333;
+    font-size: 70%;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+.tour-code-yellow{
+    color: #e67e22;
+    background-color: #ffec9b;
+    font-weight: bold;
+}
+
+.tour-code-red{
+    color: #e74c3c;
+    background-color: #e7d7da;
+    font-weight: bold;
+}
+
+.tour-code-green{
+    color: #266526;
+    background-color: #E0FFD5;
+    font-weight: bold;
+}
+
+.tour-code-blue{
+    color: #2980b9;
+    background-color: #bbe8f4;
+    font-weight: bold;
+}
+
+.tour-code-purple{
+    color: #8e44ad;
+    background-color: #f7ebfb;
+    font-weight: bold;
+}
+
+.tour-code-teal{
+    color: #16a085;
+    background-color: #e8fff2;
+    font-weight: bold;
+}
+
+.tour-code-darkblue{
+    color: #34495e;
+    background-color: #c7dce7;
+    font-weight: bold;
+}

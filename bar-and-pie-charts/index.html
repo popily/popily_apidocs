@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="Popily API Documentation">
+    <meta name="author" content="Popily">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Popily API Documentation</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="../theme/css/bootstrap.css" />
+
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/ie10-viewport-bug-workaround.css" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" type="text/css" href="../theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="../theme/css/popily.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <script src="../theme/js/popily.js"></script>
+    <script src="../theme/js/popily-geo.js"></script>
+    <script>
+    popily.api.setToken('d39c69f05c5fae5cbcbe6a3b6ebac693c6ffb807');
+    </script>
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Lato:400,700' rel='stylesheet' type='text/css'>
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+        
+
+</head>
+
+<body>
+    <div class='bar'>
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class='main-logo' href="http://popily.com/" title="Home"></a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="http://popily.com/about/"> About The Team </a></li>
+                    <li><a href="http://developers.popily.com/"> API Docs </a></li>
+                    <!-- <li><a href="http://blog.popily.com/"> Blog </a></li> -->
+                    <li><a href="http://partiallyderivative.com"> Podcast </a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
+        </nav>
+        <div class="hero">
+            <h1 class="post-title">Made For Developers With <span style='color:#e74c3c; font-size: 1.5em;position: relative; top: 8px;'>&hearts;</span></h1>
+        </div>
+    </div>
+    <!-- end of header section -->
+    <div class="container">
+        <div class='row'>
+            <div class='col-sm-3'>
+<div class="sidebar panel-group">
+    <h4>
+        <a href="/">Get Started!</a>
+    </h4>
+    <h4>
+        <a href="/data-analysis-101">Data Analysis 101</a>
+    </h4>
+    <h4>
+        <a href="/authentication">Authentication</a>
+    </h4>
+    <h4>
+        <a href="/adding-data">Adding Data</a>
+    </h4>
+    <h4>
+        <a href="/getting-charts">Getting Charts</a>
+    </h4>
+    <h4>
+        <a href="/transforming-chart-data">Transforming Chart Data</a>
+    </h4>
+    <h4>
+        <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
+    </h4>
+
+    <h4>
+      <a data-toggle="collapse" href="#collapse1">Product Tour</a>
+    </h4>
+    <div id="collapse1" class="collapse">
+    <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
+    <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
+
+</ol>
+</div>
+</div>            </div>
+            <div class='col-sm-9'>
+<section id="content" class="body">
+  <header>
+    <h1>
+      Bar And Pie Charts
+    </h1>
+  </header>
+
+
+<p>Popily is fundamentally different from other analytics products. Popily is not a chart-builder, but an advanced analytics service powered by our intelligent analytics engine, called “Maggie.”</p>
+
+<p>With Popily, you do not construct the charts you want. Instead you tell Popily a relationship in your data that you are interested in, and Popily returns with a best-practice visualization accurately representing that relationship. Let's dive right into some examples to demonstrate the point.</p>
+
+<p>Imagine we care about the relationship between sales and the type of product sold. What is the best practice for visualizing this relationship? With traditional analytics tools, you have to answer that question explicitly before writing a single line for code. With Popily, you never have to answer that question — just ask Popily for the average sales and product category, and recieve a best-practice interactive visualization of that relationship.</p>
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div id="chart-1">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<p>Want to see how easy that was? Here is the code used to generate the data visuzaliation above:</p>
+
+<div class="highlight"><pre class="well">var insightOptions = {
+source: 'sales-data',
+columns: ['Sales', 'Product Category'],
+calculation: 'average'
+};
+
+popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
+
+<p>As you can plainly see, we were never forced to specify the type of chart or submit precalculated data. All we did was tell Popily the relationships we were interested in see, and in return we recieved a data visualization of that relationship.</p>
+
+<p>We can see the power of Popily's intelligent analytics engine by asking for more complicated analyses. Imagine we are now interested in the <span class="tour-code tour-code-red">average</span> of sales of products in different categories and the types of customers who bought them. How best might this three dimensional relationship be displayed? With D3 and other charting libraries, you can't get started without answering that question. With Popily, the question is answered for you, all you need to do is specify the relationship you care about: <span class="tour-code tour-code-yellow">sales</span>, <span class="tour-code tour-code-green">product category</span>, and <span class="tour-code tour-code-blue">customer segment</span>:</p>
+
+<div class="highlight"><pre class="well">var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
+    calculation: '<span class="tour-code-red">average</span>',
+};
+
+popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
+
+
+<p>And Popily returns the best practice data visualization for that relationship:</p>
+
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="chart-2">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+<p>Now we can start to see the power of Popily's intelligent analytics engine. But we can take it farther, much farther. Using the example from above, now let's imagine that instead of the average sale, we want to look at the <span class="tour-code tour-code-teal">sum</span> total of sales. How should this relationship be displayed differently than an average sales? Again, Popily intelligent decides for you:</p>
+
+        <div class="highlight"><pre class="well">var insightOptions = {
+    source: 'sales-data',
+    columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
+    calculation: <span class="tour-code-teal">'sum'</span>
+};
+
+popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
+
+<p>Notice something different about this chart? Popily's analytics engine realized that your new request needed to be visualized in a different way, and automatically made the change for you.</p>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-3">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<p>What about if we only care about two <span class="tour-code tour-code-green">product categories</span>: <span class="tour-code tour-code-purple">technology</span> and <span class="tour-code tour-code-red">furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
+
+<div class="highlight"><pre class="well">var insightOptions = {
+    source: 'sales-data',
+        columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
+    calculation: <span class="tour-code-teal">'sum'</span>
+    transformations: [{
+        column: <span class="tour-code-green">'Product Category'</span>,
+        op: 'eq' // "equals"
+        values: [<span class="tour-code-purple">'Technology'</span>, <span class="tour-code-red">'Furniture'</span>]
+    }]
+};
+
+popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <div id="chart-4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p>Now you can see the real difference between Popily and other analytical products. Popily is not a tool for building charts, Popily is an intelligent analytics engine for automated customer-facing analytics generation. You tell Popily the relationship you want and Popily does the rest.</p>
+
+<div class="btn-group btn-group-justified tour-pagination" role="group" aria-label="...">
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href="../introduction/">&#x21e6; Introduction</a></button>
+  </div>
+  <div class="btn-group" role="group">
+    <button type="button" class="btn btn-default btn-lg btn-green"><a href="../line-and-area-charts/">Line & Area Charts &#x21e8;</a></button>
+  </div>
+</div>
+
+
+            <script>
+            var insightOptions = {
+                source: 'superstore-sales-csv-5',
+                columns: ['Product Category'],
+                calculation: 'ratio',
+            };
+
+            popily.chart.getAndRender('#chart-6', insightOptions);
+
+            </script>
+
+        <script>
+            var insightOptions = {
+                source: 'superstore-sales-csv-5',
+                columns: ['Sales', 'Product Category'],
+                calculation: 'average'
+            };
+
+            popily.chart.getAndRender('#chart-1', insightOptions);
+        </script>
+
+
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'average',
+        };
+
+        popily.chart.getAndRender('#chart-2', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'sum',
+        };
+
+        popily.chart.getAndRender('#chart-3', insightOptions);
+
+        </script>
+
+        <script>
+        var insightOptions = {
+            source: 'superstore-sales-csv-5',
+            columns: ['Sales', 'Product Category','Customer Segment'],
+            calculation: 'sum',
+            transformations: [{
+                column: 'Product Category',
+                op: 'eq',
+                values: ['Technology', 'Furniture']
+            }]
+        };
+
+        popily.chart.getAndRender('#chart-4', insightOptions);
+
+        </script>
+
+
+</section>
+            </div>
+        </div>
+
+    </div>
+    <!-- start of footer section -->
+    <footer class="footer">
+        <div class="container">
+            <p class="text-muted">
+                <center>
+                    &copy; <time datetime="2016">2016</time> Popily, LLC All rights reserved.
+                </center>
+            </p>
+        </div>
+    </footer>
+
+    <!-- Google Analytics Code Start -->
+    <script>
+        (function(i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+        ga('create', 'UA-61764668-3', 'auto');
+        ga('send', 'pageview');
+    </script>
+    <!-- Google Analytics Code End -->
+
+    <!-- Loading mathjax macro -->
+    <!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ], displayMath: [ ['$$','$$'], ["\\[","\\]"] ], processEscapes: true, processEnvironments: true }, // Center justify equations in code and markdown cells. Elsewhere // we use CSS to
+        left justify single line equations in code cells. displayAlign: 'center', "HTML-CSS": { styles: {'.MathJax_Display': {"margin": 0}}, linebreaks: { automatic: true } } });
+    </script>
+    <!-- End of mathjax configuration -->
+
+    <!-- Bootstrap core JavaScript
+      ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="../theme/js/jquery.min.js"><\/script>')
+    </script>
+    <script src="../theme/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../theme/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+
+</html>

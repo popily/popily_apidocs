@@ -19,6 +19,13 @@
     <link rel="stylesheet" type="text/css" href="./theme/css/ie10-viewport-bug-workaround.css" />
     <!-- Custom styles for this template -->
     <link rel="stylesheet" type="text/css" href="./theme/css/style.css" />
+    <link rel="stylesheet" type="text/css" href="./theme/css/popily.css" />
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed' rel='stylesheet' type='text/css'>
+    <script src="./theme/js/popily.js"></script>
+    <script src="./theme/js/popily-geo.js"></script>
+    <script>
+    popily.api.setToken('d39c69f05c5fae5cbcbe6a3b6ebac693c6ffb807');
+    </script>
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700|Open+Sans+Condensed:300,700|Lato:400,700' rel='stylesheet' type='text/css'>
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -84,6 +91,22 @@
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
 
+    <h4>
+      <a data-toggle="collapse" href="#collapse1">Product Tour</a>
+    </h4>
+    <div id="collapse1" class="collapse">
+    <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
+    <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
+
+</ol>
+</div>
 </div>            </div>
             <div class='col-sm-9'>
 <section id="content" class="body">
@@ -99,22 +122,22 @@
 <p>Popily makes it easy to turn your application data into analytics for your customers. We have client libraries in <a href="https://github.com/popily/popily-api">Python</a> and <a href="https://github.com/popily/popily-js">JavaScript</a> (more coming soon, let us know which langauges you'd like to see next!), support multi-tenancy out of the box, and let you customize interactive visualizations to your heart's content! </p>
 <p>Just add data, retrieve the relationships your customers care about, and repeat until they're happy.</p>
 <p>We'll use the JavaScript browser client in the examples below. Just make sure to add the library to your HTML document. </p>
-<div class="highlight"><pre><span class="nt">&lt;body&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
     <span class="c">&lt;!-- lots of stuff --&gt;</span>
-    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">&quot;popily.min.js&quot;</span><span class="nt">&gt;&lt;/script&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
+    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;popily.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <h2>Step 1: Authenticate</h2>
 <p>Use your API key to let Popily know who you are when you make requests.</p>
-<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API KEY&#39;</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API KEY&#39;</span><span class="p">);</span>
 </pre></div>
 
 
 <h2>Step 2: Send your data</h2>
 <p>Then tell Popily where the data can be accessed.  We can work with data from your database, or from flat files like CSVs -- whatever makes more sense in your application. We call this a <strong>Data Source</strong>.</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
     <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM my_table&#39;</span>
 <span class="p">};</span>
@@ -127,11 +150,11 @@
 
 <h2>Step 3: Get some charts</h2>
 <p>Now you can pick a column (or group of columns) to visualize. We call the relationships between columns <strong>Insights</strong>.  </p>
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">&quot;my-chart&quot;</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;my-chart&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
@@ -145,7 +168,7 @@
 <h2>Step 4: Tweak</h2>
 <p>Popily will return what it thinks is the most interesting representation of the relationship between the columns you ask for ("Sale Amount" grouped by "Sale Date" in our example). Now you can modify that output to get only the information your customers want to see. We call these modifications <strong>Transformations</strong>. </p>
 <p>Let's tweak our code from Step 4 with a transformation.</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39; and attach the </span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39; and attach the </span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
