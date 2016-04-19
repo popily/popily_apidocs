@@ -75,8 +75,14 @@ var insightOptions = {
     source: source.slug, 
     columns: ['Sale Amount', 'Sale Date'],
 
-    // Get the average Sale Amount by Sale Date
-    calculation: 'average',
+    // Get the average Sale Amount by Sale Date. Note that you can 
+    // only compare calculations of the same type. So average Sale Amount 
+    // with average Item Cost, as opposed to average Sale Amount with 
+    // with total Item Cost. 
+    calculations: [
+        column: 'Sale Amount',
+        calculation: 'average'
+    ],
     
     // Limit to the output to Sale Dates where average Sale Amount 
     // is more than $100

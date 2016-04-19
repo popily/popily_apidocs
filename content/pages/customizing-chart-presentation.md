@@ -41,6 +41,8 @@ xOrder | Order of the x axis (like bars in a bar chart) | ``a-z``, ``z-a``, ``as
 barSize | Relative size of bars in a bar chart | ``.1``
 lineSize | Size of lines in a line chart | ``3``
 pointSize | Size of points in a scatterplot | ``3``
+chartBackgroundColor | Chart background color | ``#eee``
+cardBackgroundColor | Background for the chart (and title)'s container element | ``#eee``
 titleFontFamily | Font of the chart title | ``Arial``
 titleFontSize | Size of the chart title | ``26px``
 titleFontColor | Color of the chart tytle | ``red``
@@ -51,8 +53,7 @@ xGrid | Vertical grid lines in charts | ``true``
 yGrid | Horizontal grid lines in charts | ``true``
 xAxis | Horizontal axis line in charts | ``false``
 yAxis | Horizontal axis line in charts | ``false``
-time_interval | Display into time groups | ``day``, ``month``, ``year``
-background | Chart background color | ``#eee``
+timeInterval | Display into time groups | ``day``, ``month``, ``year``
 skipAnimation | Skip the chart loading animation | ``true``
 legend | Display chart's legend | ``false``
 xRotation | Turn off x-axis label smart-rotation | ``true``
@@ -62,6 +63,10 @@ yRotation | Turn off y-axis label smart-rotation | ``true``
 var insightOptions = {
    chartType: 'bar',
    colors: ['#444', '#999'],
+   chartBackgroundColor: '#eee',
+   cardBackgroundColor: '#555',
+   titleFontColor: '#fff',
+   chartFontColor: '#444',
    xLabel: 'Thing on the Bottom',
    yLabel: 'Thing on the Left',
    groupByColumn: 'Store Location',
