@@ -143,7 +143,12 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: [<span class="tour-code-yellow">'State'</span>, <span class="tour-code-green">'Profit'</span>],
-    calculation: <span class="tour-code-darkblue">'sum'</span>
+    calculations: [
+      {
+        column: <span class="tour-code-green">'Profit'</span>,
+        calculation: <span class="tour-code-darkblue">'sum'</span>
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
@@ -183,7 +188,12 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
     var insightOptions = {
         source: 'superstore-sales-csv-13',
         columns: ['State', 'Profit'],
-        calculation: 'sum',
+        calculations: [
+          {
+            column: 'Profit',
+            calculation: 'sum'
+          }
+      ],
         chartType: 'choropleth'
     };
 

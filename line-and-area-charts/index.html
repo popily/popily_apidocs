@@ -122,7 +122,12 @@
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: [<span class="tour-code-blue">'Sales'</span>, <span class="tour-code-green">'Order Date'</span>],
-    calculation: <span class="tour-code-red">'average'</span>
+    calculations: [
+      {
+        column: <span class="tour-code-blue">'Sales'</span>,
+        calculation: <span class="tour-code-red">'average'</span>
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
@@ -144,7 +149,12 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
     <div class="highlight"><pre class="well">var insightOptions = {
         source: 'sales-data',
         columns: [<span class="tour-code-blue">'Sales'</span>, <span class="tour-code-green">'Order Date'</span>,<span class="code-addition tour-code-yellow">'Customer Segment'</span>],
-        calculation: <span class="tour-code-red">'average'</span>
+        calculations: [
+          {
+            column: <span class="tour-code-blue">'Sales'</span>,
+            calculation: <span class="tour-code-red">'average'</span>
+          }
+        ]
     };
 
     popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
@@ -166,7 +176,12 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: [<span class="tour-code-blue">'Sales'</span>, <span class="tour-code-green">'Order Date'</span>,<span class="code-addition tour-code-yellow">'Customer Segment'</span>],
-    calculation: <span class="tour-code-purple">'sum'</span>,
+    calculations: [
+      {
+        column: <span class="tour-code-blue">'Sales'</span>,
+        calculation: <span class="tour-code-purple">'sum'</span>
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
@@ -190,12 +205,18 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
         columns: [<span class="tour-code-blue">'Sales'</span>, <span class="tour-code-green">'Order Date'</span>,<span class="tour-code-yellow">'Customer Segment'</span>],
-    calculation: <span class="tour-code-red"> 'average'</span>,
+    calculations: [
+      {
+        column: <span class="tour-code-blue">'Sales'</span>,
+        calculation: <span class="tour-code-red"> 'average'</span>
+      }
+    ],
     transformations: [{
         column: <span class="tour-code-blue">'Sales'</span>,
         op: <span class="tour-code-teal">'gt'</span>, // Greater than
         values: [<span class="tour-code-darkblue">'1500'</span>]
-    }]
+        }
+    ]
 };
 
 popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
@@ -229,7 +250,12 @@ popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales'],
-            calculation: 'average'
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'average'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-1', insightOptions);
@@ -239,7 +265,12 @@ popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales','Customer Segment'],
-            calculation: 'average',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'average'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-2', insightOptions);
@@ -250,7 +281,12 @@ popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales','Customer Segment'],
-            calculation: 'sum',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'sum'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-3', insightOptions);
@@ -261,7 +297,12 @@ popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales','Customer Segment'],
-            calculation: 'average',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'average'
+              }
+          ],
             transformations: [{
                 column: 'Sales',
                 op: 'gt',

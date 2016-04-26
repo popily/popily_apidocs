@@ -120,9 +120,14 @@
     <p>Time is one of the most common elements of a data relationship. With Popily, requesting a visualization of a relationship is as easy as a few lines of code.</p>
 
     <div class="highlight"><pre class="well">var insightOptions = {
-source: 'sales-data',
-columns: ['Order Date', 'Sales', 'Customer Segment'],
-calculation: 'sum',
+    source: 'sales-data',
+    columns: ['Order Date', 'Sales', 'Customer Segment'],
+    calculations: [
+      {
+        column: 'Sales',
+        calculation: 'sum'
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
@@ -147,7 +152,12 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
     <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: ['Order Date', <span class="tour-code-blue">'Sales'</span>, <span class="tour-code-yellow">'Customer Segment'</span>],
-    calculation: <span class="tour-code-red">'sum'</span>,
+    calculations: [
+      {
+        column: <span class="tour-code-blue">'Sales'</span>,
+        calculation: <span class="tour-code-red">'sum'</span>
+      }
+    ],
     timeInterval: <span class="tour-code-green">'month'</span>
 };
 
@@ -170,7 +180,12 @@ popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
     <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: ['Order Date', <span class="tour-code-blue">'Sales'</span>, <span class="tour-code-yellow">'Customer Segment'</span>],
-    calculation: <span class="tour-code-red">'sum'</span>,
+    calculations: [
+      {
+        column: <span class="tour-code-blue">'Sales'</span>,
+        calculation: <span class="tour-code-red">'sum'</span>
+      }
+    ],
     timeInterval: <span class="tour-code-green">'month'</span>
     transformations : [{
         column: 'Order Date',
@@ -208,7 +223,12 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales', 'Customer Segment'],
-            calculation: 'sum',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'sum'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-1', insightOptions);
@@ -218,7 +238,12 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Order Date', 'Sales', 'Customer Segment'],
-            calculation: 'sum',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'sum'
+              }
+          ],
             timeInterval: 'month'
         };
 
@@ -229,7 +254,12 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
     var insightOptions = {
         source: 'superstore-sales-csv-13',
         columns: ['Order Date', 'Sales', 'Customer Segment'],
-        calculation: 'sum',
+        calculations: [
+          {
+            column: 'Sales',
+            calculation: 'sum'
+          }
+      ],
         timeInterval: 'month',
         transformations : [{
              column: 'Order Date',

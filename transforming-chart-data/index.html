@@ -119,11 +119,15 @@
 <p>For example let's say you have a dataset of purchases, and each purchase has a Purchase Price and a Location. To get the relationship between these columns you'd make this request:</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
-    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">calculations</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+        <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span>
+    <span class="p">},</span>
     <span class="nx">single</span><span class="o">:</span> <span class="kc">true</span>  
 <span class="p">};</span>
 
-<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;my-purchases-dataset&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">,</span> 
+<span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;my-purchases-dataset&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">,</span>
                         <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">insight</span><span class="p">)</span> <span class="p">{</span>
                             <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">insight</span><span class="p">);</span>
                         <span class="p">});</span>
@@ -146,7 +150,7 @@
             <span class="p">],</span>
             <span class="nt">&quot;data_type&quot;</span><span class="p">:</span> <span class="s2">&quot;number&quot;</span><span class="p">,</span>
             <span class="nt">&quot;column_header&quot;</span><span class="p">:</span> <span class="s2">&quot;Purchase Price&quot;</span>
-        <span class="p">},</span> 
+        <span class="p">},</span>
         <span class="p">{</span>
             <span class="nt">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span>
                 <span class="s2">&quot;Lowes&quot;</span><span class="p">,</span> <span class="s2">&quot;Home Depot&quot;</span><span class="p">,</span> <span class="s2">&quot;Sears&quot;</span><span class="p">,</span> <span class="s2">&quot;Ace Hardware&quot;</span><span class="p">,</span> <span class="s2">&quot;True Value&quot;</span>
@@ -162,7 +166,11 @@
 <p>This will produce a bar chart with Location along the bottom and bars representing the average purchase price of each location. You can limit what is displayed in the chart using <code>transformations</code>. For example let's only show bars where the value is over $20.</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
-    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">calculations</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+        <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span>
+    <span class="p">},</span>
     <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
@@ -176,7 +184,7 @@
 </pre></div>
 
 
-<p>A <code>transformation</code> has three properties: </p>
+<p>A <code>transformation</code> has three properties:</p>
 <table>
 <thead>
 <tr>
@@ -241,7 +249,11 @@
 <p>Multiple transformations can be applied to the same Insight. For instance we could limit the chart to display only to average Purchase Prices more than $20 at Lowes or Home Depot.</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">],</span>
-    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span><span class="p">,</span>
+    <span class="nx">calculations</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+        <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span>
+    <span class="p">},</span>
     <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
@@ -263,7 +275,11 @@
 <p>Note: each transformation will be performed in the order it is received. This becomes particularly important when applying transformations like <code>countUnique</code>. For example if our purchases dataset also had Product Type and State columns, we could really go to town:</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Product Type&#39;</span><span class="p">,</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span> <span class="s1">&#39;State&#39;</span><span class="p">],</span>
-    <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;count&#39;</span><span class="p">,</span>
+    <span class="nx">calculations</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Purchase Price&#39;</span><span class="p">,</span>
+        <span class="nx">calculation</span><span class="o">:</span> <span class="s1">&#39;average&#39;</span>
+    <span class="p">},</span>
     <span class="nx">transformations</span><span class="o">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nx">column</span><span class="o">:</span> <span class="s1">&#39;Location&#39;</span><span class="p">,</span>
@@ -286,7 +302,7 @@
 </pre></div>
 
 
-<p>That list of transformations will give us the count of each Product Type where the State is Texas or California and the Location is Lowes or Home Depot. </p>
+<p>That list of transformations will give us the count of each Product Type where the State is Texas or California and the Location is Lowes or Home Depot.</p>
 </section>
             </div>
         </div>

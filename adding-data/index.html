@@ -124,19 +124,19 @@
 <span class="p">};</span>
 
 <span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<p>When adding a Data Source from a URL (either an API endpoint or the location of a CSV file), you use the <code>url</code> property. </p>
+<p>When adding a Data Source from a URL (either an API endpoint or the location of a CSV file), you use the <code>url</code> property.</p>
 <div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span> 
+    <span class="nx">columns</span><span class="o">:</span><span class="nx">columns</span><span class="p">,</span>
     <span class="nx">url</span><span class="o">:</span> <span class="s1">&#39;http://mysite.com/data/some-csv.csv&#39;</span>
 <span class="p">};</span>
 
 <span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">addSource</span><span class="p">(</span><span class="nx">sourceOptions</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
@@ -169,7 +169,7 @@
 <p>We'll get into more detail about how to retrieve data and render charts in the <a href="/getting-charts/">Getting Charts</a>, but just FYI, the easiest workaround for this is to poll for the Insight you want, like this:</p>
 <div class="highlight"><pre><span></span><span class="c1">// Get the relationship between &#39;Sale Amount&#39; and &#39;Sale Date&#39;</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span> 
+    <span class="nx">source</span><span class="o">:</span> <span class="nx">source</span><span class="p">.</span><span class="nx">slug</span><span class="p">,</span>
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;Sale Amount&#39;</span><span class="p">,</span> <span class="s1">&#39;Sale Date&#39;</span><span class="p">],</span>
     <span class="nx">poll</span><span class="o">:</span> <span class="kc">true</span>
 <span class="p">};</span>
@@ -177,14 +177,14 @@
 </pre></div>
 
 
-<p>You can also check the <code>status</code> of a Data Source at any time using its slug or id. </p>
+<p>You can also check the <code>status</code> of a Data Source at any time using its slug or id.</p>
 <div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSource</span><span class="p">(</span><span class="s1">&#39;your-source-slug&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">source</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">source</span><span class="p">.</span><span class="nx">status</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 
 
-<p>These are the possible statuses of a Data Source. </p>
+<p>These are the possible statuses of a Data Source.</p>
 <table>
 <thead>
 <tr>
@@ -219,11 +219,11 @@
 </tr>
 </tbody>
 </table>
-<p>If you ever need to access a list of Data Sources -- either for your account, or associated with a User you have created -- you can retrieve those from the <code>/sources/</code> API endpoint, which is exposed in each of our client libraries. </p>
+<p>If you ever need to access a list of Data Sources -- either for your account, or associated with a User you have created -- you can retrieve those from the <code>/sources/</code> API endpoint, which is exposed in each of our client libraries.</p>
 <p>For example, in our browser client:</p>
 <div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">setToken</span><span class="p">(</span><span class="s1">&#39;YOUR API TOKEN || USER API TOKEN&#39;</span><span class="p">);</span>
 <span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getSources</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">sources</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sources</span><span class="p">);</span> 
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sources</span><span class="p">);</span>
 <span class="p">});</span>
 </pre></div>
 </section>

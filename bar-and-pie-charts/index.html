@@ -139,7 +139,12 @@
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: ['Sales', 'Product Category'],
-    calculation: 'average'
+    calculations: [
+      {
+        column: 'Sales',
+        calculation: 'average'
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
@@ -151,7 +156,12 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
-    calculation: '<span class="tour-code-red">average</span>',
+    calculations: [
+      {
+        column: <span class="tour-code-yellow">'Sales'</span>,
+        calculation: '<span class="tour-code-red">average</span>'
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
@@ -175,7 +185,12 @@ popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
         <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
     columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
-    calculation: <span class="tour-code-teal">'sum'</span>
+    calculations: [
+      {
+        column: <span class="tour-code-yellow">'Sales'</span>,
+        calculation: <span class="tour-code-teal">'sum'</span>
+      }
+    ]
 };
 
 popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
@@ -197,8 +212,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
-        columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
-    calculation: <span class="tour-code-teal">'sum'</span>
+    columns: [<span class="tour-code-yellow">'Sales'</span>, <span class="tour-code-green">'Product Category'</span>,<span class="tour-code-blue">'Customer Segment'</span>],
+    calculations: [
+      {
+        column: <span class="tour-code-yellow">'Sales'</span>,
+        calculation: <span class="tour-code-teal">'sum'</span>
+      }],
     transformations: [{
         column: <span class="tour-code-green">'Product Category'</span>,
         op: 'eq' // "equals"
@@ -235,7 +254,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
             var insightOptions = {
                 source: 'superstore-sales-csv-13',
                 columns: ['Product Category'],
-                calculation: 'ratio',
+                calculations: [
+                  {
+                    column: 'Product Category',
+                    calculation: 'ratio'
+                  }
+                ]
             };
 
             popily.chart.getAndRender('#chart-6', insightOptions);
@@ -246,7 +270,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
             var insightOptions = {
                 source: 'superstore-sales-csv-13',
                 columns: ['Sales', 'Product Category'],
-                calculation: 'average'
+                calculations: [
+                  {
+                    column: 'Sales',
+                    calculation: 'average'
+                  }
+                ]
             };
 
             popily.chart.getAndRender('#chart-1', insightOptions);
@@ -258,7 +287,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
-            calculation: 'average',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'average'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-2', insightOptions);
@@ -269,7 +303,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
-            calculation: 'sum',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'sum'
+              }
+            ]
         };
 
         popily.chart.getAndRender('#chart-3', insightOptions);
@@ -280,7 +319,12 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
         var insightOptions = {
             source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
-            calculation: 'sum',
+            calculations: [
+              {
+                column: 'Sales',
+                calculation: 'sum'
+              }
+          ],
             transformations: [{
                 column: 'Product Category',
                 op: 'eq',
