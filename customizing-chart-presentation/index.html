@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -144,7 +130,7 @@
 <li>Interactive maps (dots on a map)</li>
 </ul>
 <p>Typically you'll add visualizations to the DOM using the handy <code>getAndRender</code> method, which retrieves an Insight from the API, decides how to visualize it, and draws it on the page. For example:</p>
-<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-element&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">insight</span><span class="o">:</span><span class="s1">&#39;some-insight-of-yours&#39;</span><span class="p">});</span>
+<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#my-element&#39;</span><span class="p">,</span> <span class="p">{</span><span class="nx">insight</span><span class="o">:</span><span class="s1">&#39;some-insight-of-yours&#39;</span><span class="p">});</span>
 </pre></div>
 
 
@@ -315,7 +301,7 @@
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
    <span class="nx">chartType</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span><span class="p">,</span>
    <span class="nx">colors</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;#444&#39;</span><span class="p">,</span> <span class="s1">&#39;#999&#39;</span><span class="p">],</span>
    <span class="nx">chartBackgroundColor</span><span class="o">:</span> <span class="s1">&#39;#eee&#39;</span><span class="p">,</span>

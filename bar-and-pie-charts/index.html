@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -184,7 +170,7 @@ popily.chart.getAndRender('#chart-2', insightOptions);</pre></div>
             </div>
         </div>
 
-<p>Now we can start to see the power of Popily's intelligent analytics engine. But we can take it farther, much farther. Using the example from above, now let's imagine that instead of the average sale, we want to look at the <span class="tour-code tour-code-teal">sum</span> total of sales. How should this relationship be displayed differently than an average sales? Again, Popily intelligent decides for you:</p>
+<p>Now we can start to see the power of Popily's intelligent analytics engine. But we can take it farther, much farther. Using the example from above, now let's imagine that instead of the average sale, we want to look at the <span class="tour-code tour-code-teal">sum</span> total of sales. How should this relationship be displayed differently than an average of sales? Again, Popily intelligently decides for you:</p>
 
         <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
@@ -207,7 +193,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
                 </div>
             </div>
 
-<p>What about if we only care about two <span class="tour-code tour-code-green">product categories</span>: <span class="tour-code tour-code-purple">technology</span> and <span class="tour-code tour-code-red">furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
+<p>What if we only care about two <span class="tour-code tour-code-green">product categories</span>: <span class="tour-code tour-code-purple">technology</span> and <span class="tour-code tour-code-red">furniture</span>? Just add that to your request to Popily and the intelligent analytics engine does the rest:</p>
 
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
@@ -247,7 +233,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
             <script>
             var insightOptions = {
-                source: 'superstore-sales-csv-5',
+                source: 'superstore-sales-csv-13',
                 columns: ['Product Category'],
                 calculation: 'ratio',
             };
@@ -258,7 +244,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
         <script>
             var insightOptions = {
-                source: 'superstore-sales-csv-5',
+                source: 'superstore-sales-csv-13',
                 columns: ['Sales', 'Product Category'],
                 calculation: 'average'
             };
@@ -270,7 +256,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
         <script>
         var insightOptions = {
-            source: 'superstore-sales-csv-5',
+            source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
             calculation: 'average',
         };
@@ -281,7 +267,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
         <script>
         var insightOptions = {
-            source: 'superstore-sales-csv-5',
+            source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
             calculation: 'sum',
         };
@@ -292,7 +278,7 @@ popily.chart.getAndRender('#chart-4', insightOptions);</pre></div>
 
         <script>
         var insightOptions = {
-            source: 'superstore-sales-csv-5',
+            source: 'superstore-sales-csv-13',
             columns: ['Sales', 'Product Category','Customer Segment'],
             calculation: 'sum',
             transformations: [{

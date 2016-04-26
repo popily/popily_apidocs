@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -171,7 +157,7 @@
 <p>Fortunately, generally speaking creating the Data Source you need will be more straightforward. In fact, Popily is pretty good at building data models on the fly, so usually all you need to do is write a basic query that gets everything you could possibly want, like:</p>
 <p><code>SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;</code></p>
 <p>Then send that data to Popily.</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">sourceOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">connection_string</span><span class="o">:</span> <span class="s1">&#39;mysql://username:password@host:port/database&#39;</span><span class="p">,</span>
     <span class="nx">query</span><span class="o">:</span> <span class="s1">&#39;SELECT * FROM employees JOIN salaries ON salaries.employee_id = employees.id;&#39;</span>
 <span class="p">};</span>
@@ -189,7 +175,7 @@ Of course, sometimes even with the best intentions databases get a little messy 
 <p>The goal of an analysis is to figure out something about one column, like "the average employee salary is $50,000," or, more commonly, about a relationship between the columns, like "the average salary of employees based on their favorite color." Usually this involves doing a little relational algebra and performing basic calculations like finding a total or average.</p>
 <p>In Popily, these relationships are somewhat pretentiously called <strong>Insights</strong>.</p>
 <p>Fortunately Popily makes Insights automatically. We break up your data into a bunch of possible relationships, do the math, and store the calculations so they're ready whenever you need them. Then you just ask for the relationship you want. For example, to get the relationship between employees' favorite color and their salaries:</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">]</span>
@@ -200,7 +186,7 @@ Of course, sometimes even with the best intentions databases get a little messy 
 
 
 <p>Popily does a little data science magic in the background to try and figure out which way of thinking about this relationship is the most "interesting." (Seriously, the score we give to each Insight is called "interestingness.") Sometimes, however, Popily's opinion will differ from yours. Let's say, for instance, that when you asked for an Insight about <code>employees.favorite_color</code> and <code>salaries.amount</code>, it returned the total salary for each favorite color, but you want the average. No problem! You can specifiy the calculation you want like this:</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">],</span>
@@ -217,7 +203,7 @@ Of course, sometimes even with the best intentions databases get a little messy 
 
 
 <p>Now that you have the calculated relationship you want, you can transform it to show exactly what you want. Maybe you only want to see salary information for employees who like primary colors:</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">],</span>
@@ -249,13 +235,13 @@ If you're interested, this approach of splitting up a dataset, performing some c
 <p>Given the complexity of data science and analytics, it might be surprising that <a href="https://hbr.org/2013/06/data-is-worthless-if-you-dont">one of the biggest problems is communication</a>. This is particularly important in dashboards and other analytics that you embed in your application because people need to understand them at a glance. </p>
 <p>At Popily we believe in the <a href="http://www.amazon.com/The-Grammar-Graphics-Statistics-Computing/dp/0387245448">Grammar of Graphics</a>, and determine which visualization is most appropriate based on the type of information in any given relationship. Need to show the average of a number over time? We'll pick a line chart. Need to show the total sales volume by state? We'll pick a <a href="https://en.wikipedia.org/wiki/Choropleth_map">choropleth map</a>. This is why you don't see any mention of chart types in our examples.  </p>
 <p>When you do something like this:</p>
-<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">getAndRender</span><span class="p">(</span><span class="s1">&#39;#some-element&#39;</span><span class="p">,</span> <span class="nx">insightOptions</span><span class="p">);</span>
 </pre></div>
 
 
 <p>Popily looks at the Insight returned from our API, inspects the information type of each column in that relationship, looks for any transformations you might have applied, understands the density of the information that needs to be visualized, and determines which visualization will most clearly communicate the story of that relationship. Phew!</p>
 <p>Of course sometimes your judgement will be better than our algorithms, so you can override the chart type (within reason).</p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="p">...</span>
     <span class="nx">chartType</span><span class="o">:</span> <span class="s1">&#39;bar&#39;</span>
 <span class="p">}</span>

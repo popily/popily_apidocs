@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -136,7 +122,7 @@
     <p>In previous examples, were interested in the category of a product and profit. Popily analyized that relationship and returned a bar chart to visualize that relationship. But what happens if instead we are interested in the <span class="tour-code tour-code-blue">category of a product</span> and the <span class="tour-code tour-code-red">location of the order</span>? Popily's analytic engine recognizes difference in the new request and returns the appropriate visualization.</p>
 
     <div class="highlight"><pre class="well">var insightOptions = {
-    source: 'superstore-sales-csv-5',
+    source: 'sales-data',
     columns: [<span class="tour-code-blue">'Product Category'</span>, <span class=" tour-code-red">'Location'</span>],
 };
 
@@ -195,7 +181,7 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
 
     <script>
     var insightOptions = {
-        source: 'superstore-sales-csv-5',
+        source: 'superstore-sales-csv-13',
         columns: ['State', 'Profit'],
         calculation: 'sum',
         chartType: 'choropleth'

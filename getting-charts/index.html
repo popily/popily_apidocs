@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -136,7 +122,7 @@
 <p><strong>Part 2</strong>: <a href="#getting-list-charts">Getting a list of charts</a></p>
 <h2>Getting just one chart</h2>
 <p>Most often you'll want a single Insight, which looks like this:</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">]</span>
@@ -148,7 +134,7 @@
 
 <p>In the above example, we're looking for the relationship between <code>employees.favorite_color</code> and <code>salaries.amount</code>, two columns in the Data Source identified by the slug <code>my-employee-salary-source-slug</code>. </p>
 <p>By default Popily returns the chart that it thinks will be most interesting, but this won't always be exactly what you want. Let's say, for instance, that when you asked for an Insight about <code>employees.favorite_color</code> and <code>salaries.amount</code>, it returned the <em>total</em> salary for each favorite color, but you want the <em>average</em>. No problem! You can specifiy the calculation you want like this:</p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">source</span><span class="o">:</span> <span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
     <span class="nx">columns</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">,</span> <span class="s1">&#39;salaries.amount&#39;</span><span class="p">],</span>
@@ -201,7 +187,7 @@
 </table>
 <p>If you already know the slug or id of an individual Insight, for example the Insight that represents the average employee salary grouped by favorite color, you can request that Insight directly. For example:</p>
 <p><a name="getting-list-charts"></a></p>
-<div class="highlight"><pre><span class="c1">// Get the relationship between favorite color and salary</span>
+<div class="highlight"><pre><span></span><span class="c1">// Get the relationship between favorite color and salary</span>
 <span class="kd">var</span> <span class="nx">insightOptions</span> <span class="o">=</span> <span class="p">{</span>
     <span class="nx">insight</span><span class="o">:</span> <span class="s1">&#39;employees-favorite-color-salaries-amount&#39;</span> 
 <span class="p">};</span>
@@ -214,14 +200,14 @@
 <p>Throughout the documentation we make liberal use of the <code>getAndRender</code> method of the JavaScript browser client. This method always returns just one Insight, because that's what people normally want. However you can also return a filtered list of Insights. This can be useful if, like in Popily's user interface, you're helping a user to explore his or her data. </p>
 <p>To do this we'll directly access the <code>getInsights</code> method of <code>popily.api</code> in the JavaScript browser client. This functionality is also exposed in the Node.js and Python clients.</p>
 <p>The simplest way to return a list of Insights is by returning all of the Insights for a given Data Source. </p>
-<div class="highlight"><pre><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;some-source-slug&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">insights</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;some-source-slug&#39;</span><span class="p">,</span> <span class="p">{},</span> <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">insights</span><span class="p">)</span> <span class="p">{</span>
     <span class="c1">// insights</span>
 <span class="p">});</span>
 </pre></div>
 
 
 <p>This could return a lot of Insights, so you'll need to paginate through the results. Here's an example response with the <code>count</code>, <code>next</code> and <code>previous</code> properties you'd use to work your way through the list of Insights.</p>
-<div class="highlight"><pre><span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;count&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span>
     <span class="nt">&quot;previous&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
     <span class="nt">&quot;results&quot;</span><span class="p">:</span> <span class="p">[{</span>
@@ -248,14 +234,14 @@
 
 
 <p>You can pass each item in the <code>results</code> array to the <code>render</code> method of Popily's browser client, which accepts all the same customization options as <code>getAndRender</code>.</p>
-<div class="highlight"><pre><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">results</span><span class="p">.</span><span class="nx">length</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="nx">popily</span><span class="p">.</span><span class="nx">chart</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">&#39;#chart-&#39;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">.</span><span class="nx">toString</span><span class="p">(),</span> <span class="nx">results</span><span class="p">[</span><span class="nx">i</span><span class="p">]);</span>
 <span class="p">}</span>
 </pre></div>
 
 
 <p>If you're only looking for Insights about specific columns in a given Data Source, that's cool too. </p>
-<div class="highlight"><pre><span class="kd">var</span> <span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;salaries.amount&#39;</span><span class="p">,</span> <span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">];</span>
+<div class="highlight"><pre><span></span><span class="kd">var</span> <span class="nx">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;salaries.amount&#39;</span><span class="p">,</span> <span class="s1">&#39;employees.favorite_color&#39;</span><span class="p">];</span>
 <span class="nx">popily</span><span class="p">.</span><span class="nx">api</span><span class="p">.</span><span class="nx">getInsights</span><span class="p">(</span><span class="s1">&#39;my-employee-salary-source-slug&#39;</span><span class="p">,</span> 
                         <span class="p">{</span><span class="nx">columns</span><span class="o">:</span> <span class="nx">columns</span><span class="p">},</span> 
                         <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">apiResponse</span><span class="p">)</span> <span class="p">{</span>

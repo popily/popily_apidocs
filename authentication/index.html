@@ -73,34 +73,16 @@
         <a href="/">Get Started!</a>
     </h4>
     <h4>
-        <a href="/introduction">Introduction</a>
-    </h4>
-    <h4>
-        <a href="/bar-and-pie-charts">Bar And Pie Charts</a>
-    </h4>
-    <h4>
-        <a href="/line-and-area-charts">Line And Area Charts</a>
-    </h4>
-    <h4>
         <a href="/data-analysis-101">Data Analysis 101</a>
     </h4>
     <h4>
         <a href="/authentication">Authentication</a>
     </h4>
     <h4>
-        <a href="/time-series-charts">Time Series Charts</a>
-    </h4>
-    <h4>
         <a href="/adding-data">Adding Data</a>
     </h4>
     <h4>
-        <a href="/scatterplots">Scatterplots</a>
-    </h4>
-    <h4>
         <a href="/getting-charts">Getting Charts</a>
-    </h4>
-    <h4>
-        <a href="/maps-and-geo">Maps And Geo</a>
     </h4>
     <h4>
         <a href="/transforming-chart-data">Transforming Chart Data</a>
@@ -108,15 +90,19 @@
     <h4>
         <a href="/customizing-chart-presentation">Customizing Chart Presentation</a>
     </h4>
-    <h4>
-        <a href="/basic-chart-customization">Basic Chart Customization</a>
-    </h4>
 
     <h4>
       <a data-toggle="collapse" href="#collapse1">Product Tour</a>
     </h4>
     <div id="collapse1" class="collapse">
     <ol class="list-group">
+    <li class="list-group-item"><a href="/introduction">Introduction</a></li>
+    <li class="list-group-item"><a href="/bar-and-pie-charts">Bar And Pie Charts</a></li>
+    <li class="list-group-item"><a href="/line-and-area-charts">Line And Area Charts</a></li>
+    <li class="list-group-item"><a href="/time-series-charts">Time Series Charts</a></li>
+    <li class="list-group-item"><a href="/scatterplots">Scatterplots</a></li>
+    <li class="list-group-item"><a href="/maps-and-geo">Maps And Geo</a></li>
+    <li class="list-group-item"><a href="/basic-chart-customization">Basic Chart Customization</a></li>
     <li class="list-group-item"><a href="http://demo.popily.com/">Dashboard</a></li>
 
 </ol>
@@ -131,18 +117,18 @@
   </header>
 <p>Requests to Popily must be authenticated with an API key. You have an API key associated with your account, and we'll also auto-generate one for any User objects you create in our system. This way you can limit access to data on a per-user basis and manage permissions in whatever makes sense to your application.</p>
 <p>Technically, this token is passed to Popily as an <code>Authorization</code> HTTP header. Like this:</p>
-<div class="highlight"><pre><span class="n">Authorization</span><span class="o">:</span> <span class="n">abc123</span>
+<div class="highlight"><pre><span></span><span class="n">Authorization</span><span class="o">:</span> <span class="n">abc123</span>
 </pre></div>
 
 
 <p>Where "abc123" is your token. However in practice you'll probably use one the API client libraries. Here's how it works in Python...</p>
-<div class="highlight"><pre><span class="kn">from</span> <span class="nn">popily_api</span> <span class="kn">import</span> <span class="n">Popily</span>
-<span class="n">popily</span> <span class="o">=</span> <span class="n">Popily</span><span class="p">(</span><span class="s">&#39;YOUR API KEY&#39;</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">popily_api</span> <span class="kn">import</span> <span class="n">Popily</span>
+<span class="n">popily</span> <span class="o">=</span> <span class="n">Popily</span><span class="p">(</span><span class="s1">&#39;YOUR API KEY&#39;</span><span class="p">)</span>
 </pre></div>
 
 
 <p>...and JavaScript.</p>
-<div class="highlight"><pre><span class="c1">// Node.js</span>
+<div class="highlight"><pre><span></span><span class="c1">// Node.js</span>
 <span class="kd">var</span> <span class="nx">popily</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;popily&#39;</span><span class="p">)(</span><span class="s1">&#39;YOUR API TOKEN&#39;</span><span class="p">);</span>
 
 <span class="c1">// With the browser client</span>
