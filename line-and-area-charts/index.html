@@ -117,7 +117,7 @@
   </header>
 
 
-<p>With Popily, you focus on the relationships in your data that you care about, and Popily the heavy lifting to return beautiful, interactive, best-practice visualizations of that relationship. On the previous page we looked at the relationship between sales, product categories, and types of customers. Now, let us look at <span class="tour-code tour-code-red">average</span> <span class="tour-code tour-code-blue">sales</span> and <span class="tour-code tour-code-green">date</span>. All we need to do is change the columns we care about to sales and order date and Popily's analytic engine does the rest.</p>
+<p>With Popily, you focus on the relationships in your data that you care about. Popily does the heavy lifting to give you beautiful, interactive, best-practice visualizations of that relationship. in your data that you care about, and Popily the heavy lifting to return beautiful, interactive, best-practice visualizations of that relationship. On the previous page we looked at the relationship between sales, product categories, and types of customers. Now, let us look at <span class="tour-code tour-code-red">average</span> <span class="tour-code tour-code-blue">sales</span> and <span class="tour-code tour-code-green">date</span>. All you need to do is change the columns you care about to <span class="tour-code tour-code-blue">sales</span> and <span class="tour-code tour-code-green">order date</span> and Popily's analytic engine does the rest.</p>
 
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
@@ -139,7 +139,7 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
         </div>
     </div>
 
-<p>Popily has gathered the calculations necessary, restrcutured the data as necessary, and returned a chart visualization the requested relationship. But what happenes when we add a new column, perhaps <span class="tour-code tour-code-yellow">customer segment</span>? Again, all it takes is adding the column we care about to our request:</p>
+<p>Popily performed the calculations necessary, restructured the data as required, and returned a chart visualization the requested relationship. But what happens when we add a new column, perhaps <span class="tour-code tour-code-yellow">customer segment</span>? Again, all it takes is adding the column we care about to our request:</p>
 
     <div class="highlight"><pre class="well">var insightOptions = {
         source: 'sales-data',
@@ -161,7 +161,7 @@ popily.chart.getAndRender('#chart-1', insightOptions);</pre></div>
             </div>
         </div>
 
-    <p>And if we want a different relationship? Say, the <span class="tour-code tour-code-purple">sum total</span> of sales? We just ask Popily for that relationship and the analytics engine intelligent decides on the best visualization for that relationship and creates it.</p>
+    <p>And if we want a different relationship? Say, the <span class="tour-code tour-code-purple">sum total</span> of sales? We just ask Popily for that relationship and the analytics engine intelligently determines the best visualization for that relationship and creates it.</p>
 
 <div class="highlight"><pre class="well">var insightOptions = {
     source: 'sales-data',
@@ -183,7 +183,7 @@ popily.chart.getAndRender('#chart-3', insightOptions);</pre></div>
                 </div>
             </div>
 
-            <p>Notice a difference between the two charts above? Popily's analytics engine recognized the need to both run a different calculation, but more importantly to restructure the data to create a different type of visualization which best revealed the relationship requested.</p>
+            <p>Notice a difference between the two charts above? Popily's analytics engine recognized the need to run a different calculation, and more importantly, to restructure the data appropriately. This gives you a different type of visualization that best describes the relationship.</p>
 
             <p>What happens if we only care about the relationship when <span class="tour-code tour-code-red">average</span> <span class="tour-code tour-code-blue">sales</span> are <span class="tour-code tour-code-teal">greater than</span> <span class="tour-code tour-code-darkblue">$1500</span>? Just tell Popily's analytics engine and see that relationship visualized.</p>
 
@@ -212,7 +212,7 @@ popily.chart.getAndRender('#chart-5', insightOptions);</pre></div>
                 </div>
             </div>
 
-<p>As you can see, Popily's relational analytics engine allows users to focus on finding the relationships they care about rather than wasting time and energy on converting that relationship into a best practice visualization. With Popily, just tell the analytics the relationship you care about and get returned a visualization of that relationship.</p>
+<p>As you can see, Popily's relational analytics engine allows users to focus on finding the relationships they care about rather than wasting time and energy on converting that relationship into a best practice visualization. With Popily, ask for the relationship you care about and receive a visualization of that relationship.</p>
 
 <p>This is interesting, but Popily analytics engine can do much more.</p>
 
